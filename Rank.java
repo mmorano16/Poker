@@ -1,4 +1,4 @@
-//determines player hand strength after flop
+//determines player hand strength after river
 public class Rank
 {
 	public int rankHand(Card c1, Card c2, Card[] com)
