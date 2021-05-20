@@ -9,15 +9,15 @@ public class Player
 	private boolean out;
 	public Player(Card newC1, Card newC2, int newMoney, boolean newStatus, String newName, int newHandStrength, int newBet, boolean newAllIn, boolean newOut)
 	{
-		c1=newC1;
-		c2=newC2;
-		money=newMoney;
-		status=newStatus;
-		name=newName;
-		newHandStrength=handStrength;
-		bet=newBet;
-		allIn=newAllIn;
-		out=newOut;
+		c1=newC1;//card 1
+		c2=newC2;//card 2
+		money=newMoney;//players money
+		status=newStatus;//is player still in game
+		name=newName;//player name
+		newHandStrength=handStrength;//player handstrength
+		bet=newBet;//player bet
+		allIn=newAllIn;//is player all in
+		out=newOut;//has player folded
 	}
 	public void setMoney(int amount)
 	{

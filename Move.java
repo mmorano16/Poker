@@ -85,9 +85,9 @@ public class Move
 	//post: returns 0 if the player folds sets status to fold, 0 if the player checks, value>0 is the amount bet
 		Card c1=p.getC1(), c2=p.getC2();
 		int money=p.getMoney(), result;
-		if(round==0)
+		if(round==0)//pre flop
 		{
-			if(p.getAllIn() == true)
+			if(p.getAllIn() == true)//if player is all in
 			{
 				System.out.println(p.getName() + " is all in.");
 				return 0;
@@ -96,9 +96,9 @@ public class Move
 				result=handBet(c1, c2, money, currentBet, p);
 		}
 			
-		else if(round==1)
+		else if(round==1)//flop
 		{
-			if(p.getAllIn() == true)
+			if(p.getAllIn() == true)//if player is all in
 			{
 				System.out.println(p.getName() + " is all in.");
 				return 0;
@@ -106,9 +106,9 @@ public class Move
 			else
 				result=flopBet(c1, c2, com, money, currentBet, p);
 		}
-		else if(round==2)
+		else if(round==2)//turn
 		{
-			if(p.getAllIn() == true)
+			if(p.getAllIn() == true)//if player is all in
 			{
 				System.out.println(p.getName() + " is all in.");
 				return 0;
@@ -116,9 +116,9 @@ public class Move
 			else
 				result=turnBet(c1, c2, com, money, currentBet, p);
 		}
-		else 
+		else //river
 		{
-			if(p.getAllIn() == true)
+			if(p.getAllIn() == true)//if player is all in
 			{
 				System.out.println(p.getName() + " is all in.");
 				return 0;
@@ -126,26 +126,29 @@ public class Move
 			else
 				result=riverBet(c1, c2, com, money, currentBet, p);
 		}
-		if(result==-1)//player folds
+		//result is the players move
+		//following if/else are to print player move
+		if(result==-1)//sets player folds
 			p.setStatus(false);
-		if(result==0)
+		if(result==0)//player checks
 			System.out.println("Player " + p.getName() + " Checks");
-		else if(result>0)
+		else if(result>0)//player bets/raises
 			System.out.println("Player " + p.getName() + " Bets: " + result);
-		else if(result==-1)
+		else if(result==-1)//prints player folds
 			System.out.println("Player " + p.getName() + " folds");
-		else
+		else//this should not print
 			System.out.println("Something went wrong with Player " + p.getName());
+		//following are to set variables based on player move
 		if(result>=0)//player bets
-		{
+		{//corrects player money, returns result
 			p.setBet(result);
-			if(p.getMoney()==result)
+			if(p.getMoney()==result)//if player went all in
 				p.setAllIn(true);
 			return result;
 		}
 		return 0;//player checks
 	}
-	public int playerMove(Player p, int currentBet)
+	public int playerMove(Player p, int currentBet)//user move
 	{
 		Scanner in=new Scanner(System.in);
 		
@@ -154,7 +157,7 @@ public class Move
 		int bet=0;
 		
 		System.out.println(currentBet);
-		if(p.getAllIn() == true)
+		if(p.getAllIn() == true)//if user is all in
 		{
 			System.out.println("You are all in! You can't do anything.");
 			return 0;
@@ -196,7 +199,7 @@ public class Move
 						System.out.println("Invalid Bet");
 				}
 				p.setBet(bet);
-				if(p.getMoney()==bet)
+				if(p.getMoney()==bet)//sets player all in if bet all money
 					p.setAllIn(true);
 				return bet;
 			}
@@ -244,7 +247,7 @@ public class Move
 					}
 					p.setBet(bet);
 					if(p.getMoney()==bet)
-						p.setAllIn(true);
+						p.setAllIn(true);//sets player all in if bet all money
 					return bet;
 				}
 			}
@@ -253,7 +256,8 @@ public class Move
 				//need to make instance if players money is less than bet
 				if(p.getMoney()<currentBet)
 				{
-					p.setBet(p.getMoney());
+					p.setBet(p.getMoney());//sets player all in
+					//create side pot
 					return p.getMoney();
 				}
 				p.setBet(currentBet);
@@ -262,8 +266,10 @@ public class Move
 		}
 		return 0;
 	}
-	public int handBet(Card c1, Card c2, int money, int currentBet, Player p)//need to add current bet to these methods
-	{
+	public int handBet(Card c1, Card c2, int money, int currentBet, Player p)
+	{//pre: takes player cards, money, current high bet and player
+	 //uses percentages to determine what move the opponent makes based on random values
+	 //percentages of outcomes are determined by the current hand strength the player has.
 		int chance=0;
 		int bet=0;
 		Random r=new Random();
@@ -409,7 +415,8 @@ public class Move
 			}
 		}
 		System.out.println("bet: " + bet);
-		
+		if(bet > p.getMoney())//sets bet to player money if bet is greater
+			bet = p.getMoney();
 		return bet;
 	}
 	public int flopBet(Card c1, Card c2, Card[] com, int money, int currentBet, Player p)
@@ -429,7 +436,7 @@ public class Move
 			chance=r.nextInt(100)+1;
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					if(chance<=90)//check
 						bet=0;
 					else//bet
@@ -443,23 +450,23 @@ public class Move
 							bet=r.nextInt(100-5)+6;
 					}
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}
@@ -468,29 +475,32 @@ public class Move
 			chance=r.nextInt(100)+1;
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}  
-		return 0;
+		System.out.println("bet: " + bet);
+		if(bet > p.getMoney())
+			bet = p.getMoney();
+		return bet;
 
 	}
 	public int turnBet(Card c1, Card c2, Card[] com, int money, int currentBet, Player p)
@@ -509,25 +519,25 @@ public class Move
 		{
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}
@@ -535,29 +545,32 @@ public class Move
 		{
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}  
-		return 0;
+		System.out.println("bet: " + bet);
+		if(bet > p.getMoney())
+			bet = p.getMoney();
+		return bet;
 	}
 	public int riverBet(Card c1, Card c2, Card[] com, int money, int currentBet, Player p)
 	{
@@ -573,25 +586,25 @@ public class Move
 		{
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}
@@ -599,30 +612,37 @@ public class Move
 		{
 			switch(hs)
 			{
-				case 0:
+				case 0://high card
 					break;
-				case 1:
+				case 1://pair
 					break;
-				case 2:
+				case 2://two pair
 					break;
-				case 3:
+				case 3://three of a kind
 					break;
-				case 4:
+				case 4://straight
 					break;
-				case 5:
+				case 5://flush
 					break;
-				case 6:
+				case 6://four of a kind
 					break;
-				case 7:
+				case 7://full house
 					break;		
-				case 8:
+				case 8://straight flush
 					break;
-				case 9:
+				case 9://royal flush
 					break;
 			}
 		}  
-		return 0;
+		System.out.println("bet: " + bet);
+		if(bet > p.getMoney())
+			bet = p.getMoney();
+		return bet;
 	}
+	
+	//Method userOpponentMove is for testing purposes
+	//used to control opponent moves
+	//same as playerMove
 	public int userOpponentMove(Player p, int currentBet)
 	{
 		Scanner in=new Scanner(System.in);
