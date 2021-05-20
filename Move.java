@@ -442,31 +442,173 @@ public class Move
 					else//bet
 					{
 						chance=r.nextInt(100)+1;
-						if(chance<=83)//bet 1-3
+						if(chance<=90)//bet 1-3
 							bet=r.nextInt(3)+1;
-						else if(chance>=84 && chance<=93)//bet 3-5
-							bet=r.nextInt(5-3)+2;
-						else//bet 6-100
-							bet=r.nextInt(100-5)+6;
+						else if(chance>=91 && chance<=99)//bet 3-5
+							bet=r.nextInt(5-2)+3;
+						else//bet 5+
+							bet=r.nextInt(5);
 					}
 					break;
 				case 1://pair
+					if(chance<=70)//check
+						bet = 0;
+					else//bet
+					{
+						chance=r.nextInt(100)+1;
+						if(chance <= 83)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >=84 && chance <= 93)//bet 3-5
+							bet = r.nextInt(5-2)+3;
+						else if(chance >=94 && chance <= 98)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else//bet 10+
+							bet = r.nextInt(10);
+					}
 					break;
 				case 2://two pair
+					if(chance<=50)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 80)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 81 && chance <= 90)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 91 && chance <= 97)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else//bet 10+
+							bet = r.nextInt(10);
+					}
 					break;
 				case 3://three of a kind
+					if(chance<=35)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 70)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 71 && chance <= 85)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 86 && chance <= 96)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=97 && chance <= 99)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 10+
+							bet = r.nextInt(10);
+					}
 					break;
 				case 4://straight
+					if(chance<=30)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 70)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 71 && chance <= 85)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 86 && chance <= 96)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=97 && chance <= 99)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 10+
+							bet = r.nextInt(10);
+					}
 					break;
 				case 5://flush
+					if(chance<=30)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 45)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 46 && chance <= 70)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 71 && chance <= 85)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=86 && chance <= 95)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 10+
+							bet = r.nextInt(10);
+					}
 					break;
 				case 6://four of a kind
+					if(chance<=15)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 30)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 31 && chance <= 60)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 61 && chance <= 80)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=81 && chance <= 94)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 10+
+							bet = r.nextInt(p.getMoney()-9)+10;
+					}
 					break;
 				case 7://full house
+					if(chance<=10)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 15)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 16 && chance <= 40)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 41 && chance <= 70)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=71 && chance <= 90)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 15+
+							bet = r.nextInt(15);
+					}
 					break;		
 				case 8://straight flush
+					if(chance<=5)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 5)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 6 && chance <= 20)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 21 && chance <= 45)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=46 && chance <= 75)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else//bet 15+
+							bet = r.nextInt(15)+1;
+					}
 					break;
 				case 9://royal flush
+					if(chance<=5)//check
+						bet = 0;
+					else//bet
+					{
+						chance = r.nextInt(100)+1;
+						if(chance <= 2)//bet 1-3
+							bet = r.nextInt(3)+1;
+						else if(chance >= 3 && chance <= 13)//bet 3-5						
+							bet = r.nextInt(5-2)+3;
+						else if(chance >= 14 && chance <= 34)//bet 5-10
+							bet = r.nextInt(10-4)+5;
+						else if(chance >=35 && chance <= 61)//bet 10-15
+							bet = r.nextInt(15-9)+10;
+						else if(chance >=62 && chance <= 85)//bet 15-20
+							bet = r.nextInt(20-14)+15;
+						else//bet 15+
+							bet = r.nextInt(15)+1;
+					}
 					break;
 			}
 		}
@@ -476,24 +618,294 @@ public class Move
 			switch(hs)
 			{
 				case 0://high card
+					if(chance<=20)//player calls
+						return currentBet;
+					else if(chance>=21 && chance<=25)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 90)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 91 && chance <= 99)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else//raise 5+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(5)+1;
+							}
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 1://pair
+					if(chance<=70)//player calls
+						return currentBet;
+					else if(chance>=71 && chance<=75)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 83)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 84 && chance <= 93)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 94 && chance <= 98)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}							
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 2://two pair
+					if(chance<=80)//player calls
+						return currentBet;
+					else if(chance>=81 && chance<=90)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 80)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 81 && chance <= 90)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 91 && chance <= 97)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}							
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 3://three of a kind
+					if(chance<=85)//player calls
+						return currentBet;
+					else if(chance>=86 && chance<=95)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 70)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 71 && chance <= 85)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 86 && chance <= 96)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 97 && chance <= 99)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}							
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 4://straight
+					if(chance<=80)//player calls
+						return currentBet;
+					else if(chance>=81 && chance<=97)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 60)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 61 && chance <= 80)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 81 && chance <= 90)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 91 && chance <= 97)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 5://flush
+					if(chance<=60)//player calls
+						return currentBet;
+					else if(chance>=61 && chance<=98)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 45)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 46 && chance <= 70)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 71 && chance <= 85)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 86 && chance <= 95)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 6://four of a kind
+					if(chance<=45)//player calls
+						return currentBet;
+					else if(chance>=46 && chance<=99)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 30)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 31 && chance <= 60)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 61 && chance <= 80)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 81 && chance <= 94)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 10+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(10)+1;
+							}
+						}
+					}
+					else//player folds
+						return -1;
 					break;
 				case 7://full house
+					if(chance<=40)//player calls
+						return currentBet;
+					else if(chance>=41 && chance<=99)//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 15)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 16 && chance <= 40)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 41 && chance <= 70)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 71 && chance <= 90)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 15+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(15)+1;
+							}
+						}
+					}
+					else//player folds
+						return -1;
 					break;		
-				case 8://straight flush
+				case 8://straight flush, player will not fold
+					if(chance<=20)//player calls
+						return currentBet;
+					else//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 5)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 6 && chance <= 20)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 21 && chance <= 45)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 46 && chance <= 75)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else//raise 15+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(15)+1;
+							}
+						}
+					}
 					break;
 				case 9://royal flush
+					if(chance<=20)//player calls
+						return currentBet;
+					else//player raises
+					{
+						if(currentBet>=p.getMoney())//player goes all in
+							bet=currentBet;
+						else
+						{
+							chance = r.nextInt(100)+1;
+							if(chance <= 2)//raise 1-3
+								bet = currentBet +(r.nextInt(3)+1);
+							else if(chance >= 3 && chance <= 13)//raise 3-5
+								bet = currentBet + (r.nextInt(5-2)+3);
+							else if(chance >= 14 && chance <= 34)//raise 5-10
+								bet = currentBet + (r.nextInt(10-4)+5);
+							else if(chance >= 35 && chance <= 61)//raises 10-15
+								bet = currentBet + (r.nextInt(15-9)+10);
+							else if(chance >= 62 && chance <= 85)//raises 15-20
+								bet = currentBet + (r.nextInt(20-14)+15);
+							else//raise 15+
+							{
+								if(currentBet>=money)
+									bet=currentBet;//player goes all in 
+								else	
+									bet=currentBet + r.nextInt(15)+1;
+							}
+						}
+					}
 					break;
 			}
 		}  
