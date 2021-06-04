@@ -144,6 +144,9 @@ public class Game
 			System.out.println(table[i].toString());
 		for(int i=0;i<table.length;i++)
 			table[i].setAllIn(false);
+		for(int i=0;i<table.length;i++)
+			if(table[i].getMoney() == 0)
+				table[i].setOut(true);
 		d1=new Deck(ranks, suits, values);//resets deck
 		round=0;
 		dPos++;

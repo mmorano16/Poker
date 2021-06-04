@@ -19,6 +19,10 @@ public class Move
 	{//pre:recieves tables of players and decides whose turn it is
 	//post: returns the value of the pot after the round of betting, sets status, bet and money appropriately 	
 		int count=0, bPos=-1, highBet=0, pot=0, bet=0;
+		for(int i=0;i<9;i++)//sets status folded for players who are bankrupt 
+			if(table[i].getOut()==true)
+				table[i].setStatus(false);
+			
 		while(count!=table.length)
 		{
 			bet=0;
@@ -57,7 +61,7 @@ public class Move
 						count=0;
 					}
 				}
-				else if(table[(bPos+count)%9].getStatus()==true&& table[(bPos+count)%9].getOut()==false)//opponenta turn
+				else if(table[(bPos+count)%9].getStatus()==true && table[(bPos+count)%9].getOut()==false)//opponents turn
 				{				
 					bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
 					if(bet>highBet)
