@@ -18,6 +18,7 @@ public class Compare
 				winner=table[i];
 				winPos=i;
 			}
+		tie.add(0);
 		for(int i=1;i<table.length;i++)//searches to see if any players in table have same handStrenght as winner
 		{
 			if(winner.getHandStrength()==table[i].getHandStrength() && i!=winPos)
@@ -46,15 +47,17 @@ public class Compare
 				}
 			}
 		}
+		System.out.println(tie.size());
 		for(int i=0;i<tie.size();i++)
 			System.out.println(tie.get(i));
 		if(tie.size()>=2)
 		{
-			System.out.print("Players ");
+			System.out.print("Players:  ");
 			split=pot/tie.size();
+			System.out.println(split);
 			for(int i=0;i<tie.size();i++)
 			{
-				System.out.print(table[i].getName() + " ");
+				System.out.print(table[i].getName() + ", ");
 				table[tie.get(i)].setMoney(table[tie.get(i)].getMoney()+split);
 			}
 			System.out.println("split.");

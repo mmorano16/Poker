@@ -1426,8 +1426,8 @@ public class Move
 		Rank rk=new Rank();
 		
 		hs=rk.rankHand(c1,c2,com);//gets handStrength(hs)
-		
-		
+		chance = r.nextInt(100)+1;
+		System.out.println("Test");
 		if(currentBet==0)//no one has bet
 		{
 			switch(hs)

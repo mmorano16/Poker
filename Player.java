@@ -12,12 +12,12 @@ public class Player
 		c1=newC1;//card 1
 		c2=newC2;//card 2
 		money=newMoney;//players money
-		status=newStatus;//is player still in game
+		status=newStatus;//player still in hand (true = Not folded)
 		name=newName;//player name
 		newHandStrength=handStrength;//player handstrength
 		bet=newBet;//player bet
 		allIn=newAllIn;//is player all in
-		out=newOut;//has player folded
+		out=newOut;//player is bankrupt
 	}
 	public void setMoney(int amount)
 	{

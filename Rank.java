@@ -4,9 +4,7 @@ public class Rank
 	public int rankHand(Card c1, Card c2, Card[] com)
 	{//Pre:recieves the cards in a hand and the community cards on the table
 	//Post:sends the hand through multiple methods and returns the best possible ranking for the hand
-	
 		boolean p=false,tp=false,trp=false,s=false,f=false,fh=false,fp=false,sf=false,rf=false;
-
 		p=searchPair(c1, c2, com);
 		tp=searchTwoPair(c1,c2,com);
 		trp=searchThreePair(c1,c2,com);
