@@ -4,33 +4,23 @@ public class Rank
 	public int rankHand(Card c1, Card c2, Card[] com)
 	{//Pre:recieves the cards in a hand and the community cards on the table
 	//Post:sends the hand through multiple methods and returns the best possible ranking for the hand
-		boolean p=false,tp=false,trp=false,s=false,f=false,fh=false,fp=false,sf=false,rf=false;
-		p=searchPair(c1, c2, com);
-		tp=searchTwoPair(c1,c2,com);
-		trp=searchThreePair(c1,c2,com);
-		fp=searchFourPair(c1,c2,com);
-		s=searchStraight(c1,c2,com);
-		f=searchFlush(c1,c2,com);
-		fh=searchFullHouse(c1,c2,com);
-		sf=searchStraightFlush(c1,c2,com);
-		rf=searchRoyalFlush(c1,c2,com);
-		if(rf==true)
+		if(searchRoyalFlush(c1,c2,com)==true)
 			return 9;
-		else if(sf==true)
+		else if(searchStraightFlush(c1,c2,com)==true)
 			return 8;
-		else if(fp==true)
+		else if(searchFourPair(c1,c2,com)==true)
 			return 7;
-		else if(fh==true)
+		else if(searchFullHouse(c1,c2,com)==true)
 			return 6;
-		else if(f==true)
+		else if(searchFlush(c1,c2,com)==true)
 			return 5;
-		else if(s==true)
+		else if(searchStraight(c1,c2,com)==true)
 			return 4;
-		else if(trp==true)
+		else if(searchThreePair(c1,c2,com)==true)
 			return 3;
-		else if(tp==true)
+		else if(searchTwoPair(c1,c2,com)==true)
 			return 2;
-		else if(p==true)
+		else if(searchPair(c1, c2, com)==true)
 			return 1;
 		return 0;
 	}
