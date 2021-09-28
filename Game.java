@@ -23,9 +23,8 @@ public class Game
 		Rank r1=new Rank();
 		Compare c1=new Compare();
 		Move m1=new Move();
-		
         d1.shuffle();
-		//		           card, card, money, in/out, name, handStrenght, betValue, allIn, bankrupt
+		//		      card, card, money, notFold, name, handStrenght, betValue, allIn, bankrupt
 		table[0]=new Player(temp, temp, 100, true, "Me", 0, 0, false, false);//sets players hand
 		table[1]=new Player(temp, temp, 100, true, "Player 1", 0, 0, false, false);//sets players hand
 		table[2]=new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);//sets players hand

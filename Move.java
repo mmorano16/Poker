@@ -1,13 +1,5 @@
 //will need to add condition for when player money is less than current bet
-/**Create a object called sidepot that has the variables amount/players inside/pot#**\
-if sidepot.player.gethand > winner.getHand
-	sidepot.player wins sidepot.amount
-	winner.player wins pot
-else
-	winner.player wins pot + sidepot.amount
-**if there are multiple sidepots the winner takes the pot of the side pot they are in + lower side pots**
-**will need to start from the bottom and work way up**
-**have: if sidepot = true then run find side winner**/
+//create sidepot
 //add instance for if players are out of money
 
 //determines order for player moves and amounts bet/won
@@ -1427,7 +1419,6 @@ public class Move
 		
 		hs=rk.rankHand(c1,c2,com);//gets handStrength(hs)
 		chance = r.nextInt(100)+1;
-		System.out.println("Test");
 		if(currentBet==0)//no one has bet
 		{
 			switch(hs)
