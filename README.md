@@ -19,4 +19,4 @@ Compare: If two or more players have the same hand strength, contains methods th
 
 Move(Work in Progress): Contains methods for users move and for opponents move using probabilities based upon current hand strength.
 
-Side(work in progress): Contains methods to create side pots in the even a player bets all of their money.
+Side(work in progress): Contains methods to create side pots in the event a player bets all of their money.
