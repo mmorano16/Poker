@@ -43,14 +43,14 @@ public class Game
 			for(int i=0;i<table.length;i++)//deals second cards 
 				table[i].setC2(d1.deal());		
 			
-			for(int i=0;i<table.length;i++)
-				System.out.println(table[i].toString());
+//			for(int i=0;i<table.length;i++)
+//				System.out.println(table[i].toString());
 			
 			//round of betting
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
-			for(int i=0;i<table.length;i++)
-				System.out.println(table[i].toString());
+//			for(int i=0;i<table.length;i++)
+//				System.out.println(table[i].toString());
 			System.out.println();
 			//adds flop cards
 			com[pos]=d1.deal();
@@ -90,8 +90,8 @@ public class Game
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
 			
-			for(int i=0;i<table.length;i++)
-				System.out.println(table[i].toString());
+//			for(int i=0;i<table.length;i++)
+//				System.out.println(table[i].toString());
 			System.out.println();
 			for(int i=0;i<table.length;i++)//finds hand strength for each player
 			{
@@ -145,11 +145,11 @@ public class Game
 			c1.findWinner(table, com, pot);
 			for(int i=0;i<table.length;i++)//sets player status and all in to false and sets players with 0 money to out
 			{
-				System.out.println(table[i].toString());
 				table[i].setAllIn(false);
 				table[i].setStatus(true);
 				if(table[i].getMoney() == 0)
 					table[i].setOut(true);
+				System.out.println(table[i].toString());
 			}
 			d1=new Deck(ranks, suits, values);//resets deck
 			d1.shuffle();
@@ -166,6 +166,7 @@ public class Game
 			for(int i=0;i<table.length;i++)
 				if(table[i].getOut())
 					playerCount--;
+			//in.next();
 		}
 		//Player winner = new Player();
 		for(Player player : table)

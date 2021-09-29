@@ -8,7 +8,7 @@ public class Search
 		int temp=0, high=0;
 		String sGap="", fGap="", result="";
 		boolean p=false, tp=false,trp=false, s=false, f=false, fp=false, fh=false, sf=false, rf=false;
-		
+		//I know this could be optimized, maybe when everything is done. for now it works
 		p=flopPair(c1,c2,com);
 		tp=flopTwoPair(c1,c2,com);		
 		trp=flopThreePair(c1,c2,com);

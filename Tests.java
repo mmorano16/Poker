@@ -18,7 +18,7 @@ public class Tests
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1, p2, p3;
+    private Player p1, p2, p3, p4, p5, p6, p7, p8, p9;
     
     
 	@Before
@@ -39,7 +39,13 @@ public class Tests
 		H8 = d1.deal(); H9 = d1.deal(); H10 = d1.deal(); HJ = d1.deal(); HQ = d1.deal(); HK = d1.deal(); HA = d1.deal();
 		p1 = new Player(temp, temp, 100, true, "Player 1", 0, 0, false, false);
 		p2 = new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);
-		p3 = new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);
+		p3 = new Player(temp, temp, 100, true, "Player 3", 0, 0, false, false);
+		p4 = new Player(temp, temp, 100, true, "Player 4", 0, 0, false, false);
+		p5 = new Player(temp, temp, 100, true, "Player 5", 0, 0, false, false);
+		p6 = new Player(temp, temp, 100, true, "Player 6", 0, 0, false, false);
+		p7 = new Player(temp, temp, 100, true, "Player 7", 0, 0, false, false);
+		p8 = new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);
+		p9 = new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);
 	}
 
 	@Test
@@ -390,7 +396,29 @@ public class Tests
 		}
 	}
 	
-	
+	@Test
+	public void findWinnerCustomTest()
+	{
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3, p4, p5, p6, p7, p8, p9};
+		p1.setC1(DJ);p1.setC2(CK);p1.setOut(true);
+		p2.setC1(DK);p2.setC2(H3);
+		p3.setC1(C4);p3.setC2(C8);p3.setOut(true);
+		p4.setC1(HJ);p4.setC2(H5);
+		p5.setC1(D10);p5.setC2(D6);
+		p6.setC1(C3);p6.setC2(SA);p6.setOut(true);
+		p7.setC1(H4);p7.setC2(S10);p7.setOut(true);
+		p8.setC1(C7);p8.setC2(D4);p8.setOut(true);
+		p9.setC1(SK);p9.setC2(S8);
+		for(int i=0;i<9;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p5.getMoney() == 110);
+	}
 	
 	
 	

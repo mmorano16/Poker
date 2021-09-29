@@ -22,7 +22,7 @@ public class Rank
 			return 2;
 		else if(searchPair(c1, c2, com)==true)
 			return 1;
-		return 0;
+		return 0;//high card
 	}
 	public boolean searchPair(Card c1, Card c2, Card[] com)
 	{
