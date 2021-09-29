@@ -103,7 +103,7 @@ public class Player
 	}
 	public String toString()
 	{
-		return name + ": Money: " + money + ", Bet: " + bet + ", " + c1 + ", " + c2  + ", Fold: " + status + ", Hand: " + handStrength + ", All In: " + allIn + ", Out: " + out;
+		return name + ": Money: " + money + ", Bet: " + bet + ", " + c1 + ", " + c2  + ", Not Fold: " + status + ", Hand: " + handStrength + ", All In: " + allIn + ", Out: " + out;
 	}
 	public boolean getOut()
 	{

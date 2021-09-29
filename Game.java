@@ -152,7 +152,7 @@ public class Game
 					table[i].setOut(true);
 			}
 			d1=new Deck(ranks, suits, values);//resets deck
-			System.out.println("Current Deck Size: " + d1.size());
+			d1.shuffle();
 			round=0;
 			dPos++;
 			dPos = dPos % 9;

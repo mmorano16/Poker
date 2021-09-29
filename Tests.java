@@ -18,8 +18,8 @@ public class Tests
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1;
-    private Player p2;
+    private Player p1, p2, p3;
+    
     
 	@Before
 	public void testInitialize() 
@@ -39,6 +39,7 @@ public class Tests
 		H8 = d1.deal(); H9 = d1.deal(); H10 = d1.deal(); HJ = d1.deal(); HQ = d1.deal(); HK = d1.deal(); HA = d1.deal();
 		p1 = new Player(temp, temp, 100, true, "Player 1", 0, 0, false, false);
 		p2 = new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);
+		p3 = new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);
 	}
 
 	@Test
@@ -85,7 +86,6 @@ public class Tests
 			assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 0);
 		}
 	}
-	
 	
 	@Test
 	public void highCard_Com_False()
@@ -345,8 +345,6 @@ public class Tests
 			}
 		}	
 	}
-	
-	
 		
 	@Test
 	public void twoPair_Com_True()
