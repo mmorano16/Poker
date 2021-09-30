@@ -204,7 +204,9 @@ public class Move
 		{
 			System.out.println("Current Bet is: " + currentBet);
 			System.out.println("What is your move? Enter:" + "\n" + "Call, Raise, Fold");
-			
+			if(currentBet != 0 && currentBet == p.getBet())
+				return currentBet;
+				
 			while(validMove==false)
 			{
 				move=in.next();
@@ -250,10 +252,11 @@ public class Move
 			else if(move.equals("Call") || move.equals("call"))
 			{
 				//need to make instance if players money is less than bet
-				if(p.getMoney()<currentBet)
+				if(p.getMoney()<=currentBet)
 				{
 					p.setBet(p.getMoney());//sets player all in
 					//create side pot?
+					p.setAllIn(true);
 					return p.getMoney();
 				}
 				p.setBet(currentBet);
