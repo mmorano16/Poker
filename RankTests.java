@@ -2,7 +2,7 @@ import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
-public class Tests 
+public class RankTests 
 {
 	private String ranks[]={"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
     private String suits[]={"Clubs","Spades","Diamonds","Hearts"};
@@ -991,7 +991,424 @@ public class Tests
 		}
 	}
 	
+	@Test
+	public void fourPair_2Hand2Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S4);
+		com[0] = C5;
+		com[1] = S4;
+		com[2] = H8;
+		com[3] = H4;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
 	
+	@Test
+	public void fourPair_2Hand2Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
+	
+	@Test
+	public void fourPair_1Hand3Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C4;
+		com[1] = S4;
+		com[2] = H8;
+		com[3] = H4;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
+	
+	@Test
+	public void fourPair_1Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C4;
+		com[1] = S4;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
+	
+	@Test
+	public void fourPair_4Com_True()
+	{
+		p1.setC1(C3);
+		p1.setC2(S2);
+		com[0] = C4;
+		com[1] = S4;
+		com[2] = H8;
+		com[3] = H4;
+		com[4] = S4;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
+	
+	@Test
+	public void fourPair_4Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 7);
+			}
+		}
+	}
+	
+	@Test
+	public void straightFlush_2Hand3Com_True()
+	{
+		p1.setC1(S4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = SA;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+	
+	@Test
+	public void straightFlush_2Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+	
+	@Test
+	public void straightFlush_1Hand4Com_True()
+	{
+		p1.setC1(CK);
+		p1.setC2(S2);
+		com[0] = S5;
+		com[1] = S4;
+		com[2] = SA;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+
+	@Test
+	public void straightFlush_1Hand4Com_False()
+	{
+		p1.setC1(CK);
+		p1.setC2(SQ);
+		com[0] = CA;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+	
+	@Test
+	public void straightFlush_5Com_5High_True()
+	{
+		p1.setC1(CK);
+		p1.setC2(SQ);
+		com[0] = SA;
+		com[1] = S2;
+		com[2] = S3;
+		com[3] = S4;
+		com[4] = S5;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+	
+	@Test
+	public void straightFlush_5Com_AceHigh()
+	{
+		p1.setC1(C2);
+		p1.setC2(S3);
+		com[0] = SA;
+		com[1] = SK;
+		com[2] = SQ;
+		com[3] = SJ;
+		com[4] = S10;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+		
+	}
+	
+	@Test
+	public void straightFlush_5Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 8);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_2Hand3Com_True()
+	{
+		p1.setC1(C10);
+		p1.setC2(CA);
+		com[0] = CK;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = CJ;
+		com[4] = CQ;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_2Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_1Hand4Com_True()
+	{
+		p1.setC1(CK);
+		p1.setC2(S2);
+		com[0] = CA;
+		com[1] = C10;
+		com[2] = H8;
+		com[3] = CJ;
+		com[4] = CQ;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_1Hand4Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_5Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C10;
+		com[1] = CK;
+		com[2] = CA;
+		com[3] = CQ;
+		com[4] = CJ;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
+	
+	@Test
+	public void royalFlush_5Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 9);
+			}
+		}
+	}
 	
 	
 	

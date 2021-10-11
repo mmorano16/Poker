@@ -564,7 +564,7 @@ public class Rank
 		String suit=c1.getSuit();
 		boolean ace=false;
 		if(searchComRoyalFlush(com)==true)
-		return true;
+			return true;
 		for(int i=0;i<5;i++)
 		{
 			if(high==c2.getValue()-1 && suit.equals(c2.getSuit()))
@@ -593,19 +593,19 @@ public class Rank
 				i=-1;
 			}
 		}
-		if(low==0)//adds ace from com to high count if king is high
-			for(int i=0;i<5;i++)
-				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
-				{
-					ace=true;
-					count++;
-				}
-		if(low==0)//adds ace from hand to high count if king is high
-			if((c1.getValue()==12 && suit.equals(c1.getSuit())) || (c2.getValue()==12 && suit.equals(c2.getSuit())))
-			{
-				ace=true;
-				count++;
-			}
+//		if(low==0)//adds ace from com to high count if king is high
+//			for(int i=0;i<5;i++)
+//				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
+//				{
+//					ace=true;
+//					count++;
+//				}
+//		if(low==0)//adds ace from hand to high count if king is high
+//			if((c1.getValue()==12 && suit.equals(c1.getSuit())) || (c2.getValue()==12 && suit.equals(c2.getSuit())))
+//			{
+//				ace=true;
+//				count++;
+//			}
 		if(count>=5 && ace==true)
 			return true;
 		high=c2.getValue();
@@ -641,60 +641,64 @@ public class Rank
 				i=-1;
 			}
 		}
-		if(low==0)//adds ace from com to high count if king is high
-			for(int i=0;i<5;i++)
-				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
-				{
-					ace=true;
-					count++;
-				}
-		if(low==0)//adds ace from hand to high count if king is high
-			if((c1.getValue()==12 && suit.equals(c1.getSuit())) || (c2.getValue()==12 && suit.equals(c2.getSuit())))
-			{
-				ace=true;
-				count++;
-			}
+//		if(low==0)//adds ace from com to high count if king is high
+//			for(int i=0;i<5;i++)
+//				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
+//				{
+//					ace=true;
+//					count++;
+//				}
+//		if(low==0)//adds ace from hand to high count if king is high
+//			if((c1.getValue()==12 && suit.equals(c1.getSuit())) || (c2.getValue()==12 && suit.equals(c2.getSuit())))
+//			{
+//				ace=true;
+//				count++;
+//			}
 		if(count>=5 && ace==true)
 			return true;
+		
 		return false;		
 	}
 	public boolean searchComRoyalFlush(Card[] com)
 	{
-		int high=com[0].getValue(),low=com[0].getValue(), count=1;
-		String suit=com[0].getSuit();
-		boolean ace=false;
-		
-		for(int i=0;i<5;i++)
+		for(int k=0;k<5;k++)
 		{
-			if(high==com[i].getValue()-1)
-			{
-				if(!suit.equals(com[i].getSuit()))
-					return false;
-				high=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		for(int i=0;i<5;i++)
-		{
-			if(low==com[i].getValue()+1)
-			{
-				if(!suit.equals(com[i].getSuit()))
-					return false;
-				low=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		if(low==0)//adds ace to high straight if there
+			int high=com[0].getValue(),low=com[0].getValue(), count=1;
+			String suit=com[0].getSuit();
+			boolean ace=false;
+			
 			for(int i=0;i<5;i++)
-				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
+			{
+				if(high==com[i].getValue()-1)
 				{
-					ace=true;
+					if(!suit.equals(com[i].getSuit()))
+						return false;
+					high=com[i].getValue();
 					count++;
+					i=0;
 				}
-		if(count>=5 && ace==true)
-			return true;
+			}
+			for(int i=0;i<5;i++)
+			{
+				if(low==com[i].getValue()+1)
+				{
+					if(!suit.equals(com[i].getSuit()))
+						return false;
+					low=com[i].getValue();
+					count++;
+					i=0;
+				}
+			}
+//			if(low==0)//adds ace to high straight if there
+//				for(int i=0;i<5;i++)
+//					if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
+//					{
+//						ace=true;
+//						count++;
+//					}
+			if(count>=5 && ace==true)
+				return true;
+		}
 		return false;
 	}
 }
