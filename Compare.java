@@ -5,23 +5,26 @@ import java.util.ArrayList;
 public class Compare
 {
 	public void findWinner(Player[] table, Card[] com, int pot)
-	{//pre:compares players hand strenght finding the highest
+	{//pre:compares players hand strength finding the highest
 	//comparing hands if equal
 	//post:finds the winner and transfers money to winner
-		Player winner=table[0];
+		int pos = 0, comp=-1, winPos=0, split=0;
+		while(table[pos].getOut())
+			pos++;
+		Player winner=table[pos];
 		ArrayList<Integer> tie=new ArrayList<Integer>();
-		int comp=-1, winPos=0, split=0;
+		winPos = pos;
 		
 		for(int i=0;i<table.length;i++)//searches for a winner with highest handStrenght
-			if(winner.getHandStrength()<table[i].getHandStrength())
+			if(winner.getHandStrength()<table[i].getHandStrength() && table[i].getOut()==false)
 			{
 				winner=table[i];
 				winPos=i;
 			}
-		tie.add(0);
-		for(int i=1;i<table.length;i++)//searches to see if any players in table have same handStrenght as winner
+		tie.add(winPos);
+		for(int i=0;i<table.length;i++)//searches to see if any players in table have same handStrenght as winner
 		{
-			if(winner.getHandStrength()==table[i].getHandStrength() && i!=winPos)
+			if(winner.getHandStrength()==table[i].getHandStrength() && table[i].getOut()==false && i!=winPos)
 			{
 				comp=compareHand(winner, table[i], table[i].getHandStrength(), com);
 				if(comp==1)
@@ -47,7 +50,6 @@ public class Compare
 				}
 			}
 		}
-		System.out.println(tie.size());
 		for(int i=0;i<tie.size();i++)
 			System.out.println(tie.get(i));
 		if(tie.size()>=2)
@@ -76,33 +78,33 @@ public class Compare
 		int win=0;
 		switch(rank)//no need to compare royal flush
 		{
-			case 9:
+			case 8:
 				win=compareStraight(p1,p2,com);//straight flush same compare as straught
 				break;
-			case 8:
+			case 7:
 				win=compareFourPair(p1,p2,com);
 				break;
-			case 7:
+			case 6:
 				p1.sortHand();
 				p2.sortHand();
 				win=compareFullHosue(p1,p2,com);
 				break;
-			case 6:
+			case 5:
 				win=compareFlush(p1,p2,com);
 				break;
-			case 5:
+			case 4:
 				win=compareStraight(p1,p2,com);
 				break;
-			case 4:
+			case 3:
 				win=compareThreePair(p1,p2,com);
 				break;
-			case 3:
+			case 2:
 				win=compareTwoPair(p1,p2,com);
 				break;
-			case 2:
+			case 1:
 				win=comparePair(p1,p2,com);
 				break;
-			case 1:
+			case 0:
 				win=compareHighCard(p1,p2,com);
 				break;
 		}
