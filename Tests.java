@@ -395,6 +395,605 @@ public class Tests
 			}
 		}
 	}
+
+	@Test
+	public void threeKind_Pocket_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S4);
+		com[0] = C5;
+		com[1] = S2;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = H4;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void threeKind_Pocket_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void threeKind_1HandCom_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = H4;
+		com[1] = S4;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void threeKind_1HandCom_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void threeKind_Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = H5;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void threeKind_Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 3);
+			}
+		}
+	}
+	
+	@Test
+	public void straight_2Hand3Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = HA;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+	
+	@Test
+	public void straight_2Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+	
+	@Test
+	public void straight_1Hand4Com_True()
+	{
+		p1.setC1(CK);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S4;
+		com[2] = HA;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+
+	@Test
+	public void straight_1Hand4Com_False()
+	{
+		p1.setC1(CK);
+		p1.setC2(SQ);
+		com[0] = CA;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+	
+	@Test
+	public void straight_5Com_5High_True()
+	{
+		p1.setC1(CK);
+		p1.setC2(SQ);
+		com[0] = CA;
+		com[1] = S2;
+		com[2] = H3;
+		com[3] = H4;
+		com[4] = S5;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+	
+	@Test
+	public void straight_5Com_AceHigh()
+	{
+		p1.setC1(C2);
+		p1.setC2(S3);
+		com[0] = CA;
+		com[1] = SK;
+		com[2] = HQ;
+		com[3] = HJ;
+		com[4] = S10;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+		
+	}
+	
+	@Test
+	public void straight_5Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 4);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_2Hand3Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(C2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = C8;
+		com[3] = CJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_2Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_1Hand4Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = C8;
+		com[3] = CJ;
+		com[4] = C3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_1Hand4Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_5Com_True()
+	{
+		p1.setC1(S4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = C5;
+		com[2] = C8;
+		com[3] = CJ;
+		com[4] = C3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_5Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 5);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_2Hand3Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C4;
+		com[1] = S5;
+		com[2] = H4;
+		com[3] = HJ;
+		com[4] = S2;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_2Hand3Com_Pocket_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S4);
+		com[0] = C4;
+		com[1] = S5;
+		com[2] = H2;
+		com[3] = HJ;
+		com[4] = S2;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_2Hand3Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_1Hand4Com_Com3Kind_True()
+	{
+		p1.setC1(CJ);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = H5;
+		com[4] = S2;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_1Hand4Com_Com2Pair_True()
+	{
+		p1.setC1(CJ);
+		p1.setC2(S5);
+		com[0] = C5;
+		com[1] = S2;
+		com[2] = H8;
+		com[3] = H5;
+		com[4] = S2;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_1Hand4Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_5Com_True()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H3;
+		com[3] = H5;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertTrue(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	@Test
+	public void FullHouse_5Com_False()
+	{
+		p1.setC1(C4);
+		p1.setC2(S2);
+		com[0] = C5;
+		com[1] = S5;
+		com[2] = H8;
+		com[3] = HJ;
+		com[4] = S3;
+		for(int i=0;i<5;i++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[i];
+				com[i] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				assertFalse(r1.rankHand(p1.getC1(), p1.getC2(), com) == 6);
+			}
+		}
+	}
+	
+	
+	
+	
 	
 	@Test
 	public void findWinnerCustomTest()
@@ -419,9 +1018,6 @@ public class Tests
 		c1.findWinner(table, com, 10);
 		assertTrue(p5.getMoney() == 110);
 	}
-	
-	
-	
 	
 }	
 	

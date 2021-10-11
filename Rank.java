@@ -284,32 +284,35 @@ public class Rank
 	}
 	public boolean searchComStraight(Card[] com)
 	{
-		int high=com[0].getValue(),low=com[0].getValue(), count=1;
-		
-		for(int i=0;i<5;i++)
+		for(int k=0;k<5;k++)
 		{
-			if(high==com[i].getValue()-1)
-			{
-				high=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		for(int i=0;i<5;i++)
-		{
-			if(low==com[i].getValue()+1)
-			{
-				low=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		if(low==0)//adds ace to high straight if there
+			int high=com[k].getValue(),low=com[k].getValue(), count=1;
+			
 			for(int i=0;i<5;i++)
-				if(com[i].getValue()==12)
+			{
+				if(high==com[i].getValue()-1)
+				{
+					high=com[i].getValue();
 					count++;
-		if(count>=5)
-			return true;
+					i=0;
+				}
+			}
+			for(int i=0;i<5;i++)
+			{
+				if(low==com[i].getValue()+1)
+				{
+					low=com[i].getValue();
+					count++;
+					i=0;
+				}
+			}
+			if(low==0)//adds ace to high straight if there
+				for(int i=0;i<5;i++)
+					if(com[i].getValue()==12)
+						count++;
+			if(count>=5)
+				return true;
+		}
 		return false;
 	}
 	public boolean searchFlush(Card c1, Card c2, Card[] com)
@@ -416,7 +419,7 @@ public class Rank
 			return false;
 		check=com[0];
 		int count=1;
-		for(int i=count;i<5;i++)//checks for pair and if pair value is != tok value return true
+		for(int i=count;i<5;i++)//checks for pair and if pair value is != three of kind value return true
 		{
 			for(int k=count;k<5;k++)
 			{
@@ -519,37 +522,40 @@ public class Rank
 	}
 	public boolean searchComStraightFlush(Card[] com)
 	{
-		int high=com[0].getValue(),low=com[0].getValue(), count=1;
-		String suit=com[0].getSuit();
-		
-		for(int i=0;i<5;i++)
+		for(int k=0;k<5;k++)
 		{
-			if(high==com[i].getValue()-1)
-			{
-				if(!suit.equals(com[i].getSuit()))
-					return false;
-				high=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		for(int i=0;i<5;i++)
-		{
-			if(low==com[i].getValue()+1)
-			{
-				if(!suit.equals(com[i].getSuit()))
-					return false;
-				low=com[i].getValue();
-				count++;
-				i=0;
-			}
-		}
-		if(low==0)//adds ace to high straight if there
+			int high=com[k].getValue(),low=com[k].getValue(), count=1;
+			String suit=com[k].getSuit();
+			
 			for(int i=0;i<5;i++)
-				if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
-					count++;		
-		if(count>=5)
-			return true;
+			{
+				if(high==com[i].getValue()-1)
+				{
+					if(!suit.equals(com[i].getSuit()))
+						return false;
+					high=com[i].getValue();
+					count++;
+					i=0;
+				}
+			}
+			for(int i=0;i<5;i++)
+			{
+				if(low==com[i].getValue()+1)
+				{
+					if(!suit.equals(com[i].getSuit()))
+						return false;
+					low=com[i].getValue();
+					count++;
+					i=0;
+				}
+			}
+			if(low==0)//adds ace to high straight if there
+				for(int i=0;i<5;i++)
+					if(com[i].getValue()==12 && suit.equals(com[i].getSuit()))
+						count++;		
+			if(count>=5)
+				return true;
+		}
 		return false;
 	}
 	public boolean searchRoyalFlush(Card c1, Card c2, Card[] com)
