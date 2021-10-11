@@ -72,7 +72,7 @@ public class Player
 		c1=newC1;
 		c2=newC2;
 	}
-	public void sortHand()
+	public void sortHand()//makes card with higher value C1
 	{
 		Card temp;
 		if(c1.getValue()<c2.getValue())
@@ -82,7 +82,7 @@ public class Player
 			c2=temp;
 		}
 	}
-	public String showHand()
+	public String showHand()//concats toString of each card
 	{
 		String s="";
 		s+=c1.toString()+", ";
@@ -101,10 +101,6 @@ public class Player
 	{
 		return allIn;
 	}
-	public String toString()
-	{
-		return name + ": Money: " + money + ", Bet: " + bet + ", " + c1 + ", " + c2  + ", Not Fold: " + status + ", Hand: " + handStrength + ", All In: " + allIn + ", Out: " + out;
-	}
 	public boolean getOut()
 	{
 		return out;
@@ -112,5 +108,39 @@ public class Player
 	public void setOut(boolean tf)
 	{
 		out=tf;
+	}
+	public String show()//returns necessary stats to show player
+	{
+		return "Hand: " + showHand() + ", Money: " + money + ", Current Hand: " + showHandStrength();
+	}
+	public String showHandStrength()//returns hand strength name
+	{
+		switch(handStrength)
+		{
+		case 9:
+			return "Royal Flush";
+		case 8:
+			return "Straight Flush";
+		case 7:
+			return "Four of a Kind";
+		case 6:
+			return "Full House";
+		case 5:
+			return "Flush";
+		case 4:
+			return "Straight";
+		case 3:
+			return "Three of a Kind";
+		case 2:
+			return "Two Pair";
+		case 1:
+			return "Pair";
+		default:
+			return "High Card";
+		}
+	}
+	public String toString()
+	{
+		return name + ": Money: " + money + ", Bet: " + bet + ", " + c1 + ", " + c2  + ", Not Fold: " + status + ", Hand: " + handStrength + ", All In: " + allIn + ", Out: " + out;
 	}
 }

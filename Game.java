@@ -45,7 +45,7 @@ public class Game
 			
 //			for(int i=0;i<table.length;i++)
 //				System.out.println(table[i].toString());
-			
+			Simple.print(table[0].show());
 			//round of betting
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
@@ -65,6 +65,7 @@ public class Game
 			System.out.println();	
 			//round of betting
 			round++;
+			Simple.print(table[0].show());
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
 			//adds turn card		
@@ -76,6 +77,7 @@ public class Game
 			System.out.println();
 			//round of betting
 			round++;
+			Simple.print(table[0].show());
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
 			//adds river card
@@ -87,6 +89,7 @@ public class Game
 			System.out.println();
 			//round of betting
 			round++;
+			Simple.print(table[0].show());
 			pot+=m1.move(table, dPos, round, com);
 			System.out.println("Pot: " + pot);
 			
