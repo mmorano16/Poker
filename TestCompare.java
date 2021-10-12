@@ -51,8 +51,46 @@ public class TestCompare
 	@Test
 	public void HighCard_P1_True()
 	{
-		p1.setC1(DJ);p1.setC2(CK);
-		p2.setC1(DA);p2.setC2(H3);
+		p1.setC1(DA);p1.setC2(C3);
+		p2.setC1(D4);p2.setC2(HK);
+		p3.setC1(C4);p3.setC2(C8);
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p1.getMoney() == 110);
+		
+	}
+	
+	@Test
+	public void HighCard_P1_False()
+	{
+		p1.setC1(D10);p1.setC2(C3);
+		p2.setC1(D4);p2.setC2(HK);
+		p3.setC1(C4);p3.setC2(C8);
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertFalse(p1.getMoney() == 110);
+		
+	}
+	
+	@Test
+	public void HighCard_P2_True()
+	{
+		p1.setC1(D10);p1.setC2(C3);
+		p2.setC1(D4);p2.setC2(HK);
 		p3.setC1(C4);p3.setC2(C8);
 		com[0] = S5;
 		com[1] = D9;
@@ -64,5 +102,63 @@ public class TestCompare
 			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
 		c1.findWinner(table, com, 10);
 		assertTrue(p2.getMoney() == 110);
+		
+	}
+	
+	@Test
+	public void HighCard_P2_False()
+	{
+		p1.setC1(D10);p1.setC2(CK);
+		p2.setC1(D4);p2.setC2(H10);
+		p3.setC1(C4);p3.setC2(C8);
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertFalse(p2.getMoney() == 110);
+		
+	}
+	
+	@Test
+	public void HighCard_P3_True()
+	{
+		p1.setC1(D10);p1.setC2(C3);
+		p2.setC1(D4);p2.setC2(HK);
+		p3.setC1(C4);p3.setC2(CA);
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p3.getMoney() == 110);
+		
+	}
+	
+	@Test
+	public void HighCard_P3_False()
+	{
+		p1.setC1(D10);p1.setC2(CK);
+		p2.setC1(D4);p2.setC2(H10);
+		p3.setC1(C4);p3.setC2(C8);
+		com[0] = S5;
+		com[1] = D9;
+		com[2] = D2;
+		com[3] = S6;
+		com[4] = HQ;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertFalse(p3.getMoney() == 110);
+		
 	}
 }
