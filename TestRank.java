@@ -18,8 +18,7 @@ public class TestRank
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1, p2, p3, p4, p5, p6, p7, p8, p9;
-    
+    private Player p1, p2, p3, p4, p5, p6, p7, p8, p9;   
     
 	@Before
 	public void testInitialize() 
@@ -1409,9 +1408,7 @@ public class TestRank
 			}
 		}
 	}
-	
-	
-	
+
 	@Test
 	public void findWinnerCustomTest()
 	{
@@ -1434,6 +1431,5 @@ public class TestRank
 			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
 		c1.findWinner(table, com, 10);
 		assertTrue(p5.getMoney() == 110);
-	}
-	
+	}	
 }	

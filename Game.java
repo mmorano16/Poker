@@ -169,7 +169,9 @@ public class Game
 			for(int i=0;i<table.length;i++)
 				if(table[i].getOut())
 					playerCount--;
-			//in.next();
+
+			Simple.print("Press Enter to Continue");
+			in.nextLine();
 		}
 		//Player winner = new Player();
 		for(Player player : table)
