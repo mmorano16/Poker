@@ -27,11 +27,11 @@ public class Compare
 			if(winner.getHandStrength()==table[i].getHandStrength() && table[i].getOut()==false && i!=winPos)
 			{
 				comp=compareHand(winner, table[i], table[i].getHandStrength(), com);
-				if(comp==1)
+				if(comp==1 && tie.size()==1)
 				{
 					//System.out.println("\n" + table[i].getName() + " Wins");
 					tie.clear();
-					tie.add(i);
+					tie.add(i-1);
 					//winner stays the same, set same false
 				}
 				else if(comp==2)
@@ -54,15 +54,14 @@ public class Compare
 			System.out.println(tie.get(i));
 		if(tie.size()>=2)
 		{
-			System.out.print("Players:  ");
 			split=pot/tie.size();
-			System.out.println(split);
 			for(int i=0;i<tie.size();i++)
 			{
-				System.out.print(table[i].getName() + ", ");
+				System.out.print(table[tie.get(i)].getName() + ", ");
 				table[tie.get(i)].setMoney(table[tie.get(i)].getMoney()+split);
 			}
 			System.out.println("split.");
+			System.out.print("Players Earn: " + split + " Each");
 		}
 		else
 		{
