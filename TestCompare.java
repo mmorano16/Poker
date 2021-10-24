@@ -1439,26 +1439,6 @@ public class TestCompare
 	}
 	
 	@Test
-	public void test()
-	{
-		p1.setC1(CA);p1.setC2(C4);
-		p2.setC1(C3);p2.setC2(C9);
-		p3.setC1(C4);p3.setC2(CA);
-		com[0] = SQ;
-		com[1] = CJ;
-		com[2] = HK;
-		com[3] = D10;
-		com[4] = S6;
-		Player table[] = {p1, p2, p3};
-		for(int i=0;i<table.length;i++)
-			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-		c1.findWinner(table, com, 10);
-		assertTrue(p1.getMoney() == 105);
-		assertTrue(p2.getMoney() == 100);
-		assertTrue(p3.getMoney() == 105);
-	}
-	
-	@Test
 	public void straight_Tie13_False()
 	{
 		p1.setC1(C4);p1.setC2(C7);
@@ -1476,5 +1456,83 @@ public class TestCompare
 		assertTrue(p1.getMoney() == 105);
 		assertTrue(p2.getMoney() == 105);
 		assertTrue(p3.getMoney() == 100);
+	}
+	
+	@Test
+	public void straight_Tie23_True()
+	{
+		p1.setC1(C4);p1.setC2(C9);
+		p2.setC1(C4);p2.setC2(C7);
+		p3.setC1(C4);p3.setC2(C7);
+		com[0] = S2;
+		com[1] = C3;
+		com[2] = HK;
+		com[3] = D5;
+		com[4] = S6;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p1.getMoney() == 100);
+		assertTrue(p2.getMoney() == 105);
+		assertTrue(p3.getMoney() == 105);
+	}
+	
+	@Test
+	public void straight_Tie23_False()
+	{
+		p1.setC1(C4);p1.setC2(C7);
+		p2.setC1(C4);p2.setC2(C7);
+		p3.setC1(C4);p3.setC2(C9);
+		com[0] = S2;
+		com[1] = C3;
+		com[2] = HK;
+		com[3] = D5;
+		com[4] = S6;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p1.getMoney() == 105);
+		assertTrue(p2.getMoney() == 105);
+		assertTrue(p3.getMoney() == 100);
+	}
+	@Test
+	public void straight_3Tie_True()
+	{
+		p1.setC1(C4);p1.setC2(C7);
+		p2.setC1(C4);p2.setC2(C7);
+		p3.setC1(C4);p3.setC2(C7);
+		com[0] = S2;
+		com[1] = C3;
+		com[2] = HK;
+		com[3] = D5;
+		com[4] = S6;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p1.getMoney() == 103);
+		assertTrue(p2.getMoney() == 103);
+		assertTrue(p3.getMoney() == 103);
+	}
+	@Test
+	public void straight_3Tie_False()
+	{
+		p1.setC1(C4);p1.setC2(C7);
+		p2.setC1(C4);p2.setC2(C7);
+		p3.setC1(C4);p3.setC2(C7);
+		com[0] = S2;
+		com[1] = C3;
+		com[2] = HK;
+		com[3] = D5;
+		com[4] = S6;
+		Player table[] = {p1, p2, p3};
+		for(int i=0;i<table.length;i++)
+			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+		c1.findWinner(table, com, 10);
+		assertTrue(p1.getMoney() == 103);
+		assertTrue(p2.getMoney() == 103);
+		assertTrue(p3.getMoney() == 103);
 	}
 }
