@@ -49,7 +49,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P1_True()
+	public void highCard_P1_True()
 	{
 		p1.setC1(DA);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(HK);
@@ -67,7 +67,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P1_False()
+	public void highCard_P1_False()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(HK);
@@ -85,7 +85,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P2_True()
+	public void highCard_P2_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(HK);
@@ -103,7 +103,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P2_False()
+	public void highCard_P2_False()
 	{
 		p1.setC1(D10);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H10);
@@ -121,7 +121,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P3_True()
+	public void highCard_P3_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(HK);
@@ -139,7 +139,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_P3_False()
+	public void highCard_P3_False()
 	{
 		p1.setC1(D10);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H10);
@@ -157,7 +157,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie12_True()
+	public void highCard_Tie12_True()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(HA);
@@ -176,7 +176,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie12_False()
+	public void highCard_Tie12_False()
 	{
 		p1.setC1(D3);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(HA);
@@ -195,7 +195,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie13_True()
+	public void highCard_Tie13_True()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(HK);
@@ -214,7 +214,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie13_False()
+	public void highCard_Tie13_False()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(HA);
@@ -233,7 +233,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie23_True()
+	public void highCard_Tie23_True()
 	{
 		p1.setC1(D3);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(HA);
@@ -252,7 +252,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_Tie23_False()
+	public void highCard_Tie23_False()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(HA);
@@ -271,7 +271,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void HighCard_3Tie_True()
+	public void highCard_3Tie_True()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(HA);
@@ -291,7 +291,7 @@ public class TestCompare
 	}
 
 	@Test
-	public void Pair_P1_True()
+	public void pair_P1_True()
 	{
 		p1.setC1(DA);p1.setC2(C7);
 		p2.setC1(D4);p2.setC2(HK);
@@ -309,7 +309,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_P1_False()
+	public void pair_P1_False()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(H6);
@@ -327,7 +327,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_P2_True()
+	public void pair_P2_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(H6);
@@ -345,7 +345,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_P2_False()
+	public void pair_P2_False()
 	{
 		p1.setC1(D10);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H10);
@@ -363,7 +363,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_P3_True()
+	public void pair_P3_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(HK);
@@ -381,7 +381,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_P3_False()
+	public void pair_P3_False()
 	{
 		p1.setC1(D10);p1.setC2(C6);
 		p2.setC1(D4);p2.setC2(H10);
@@ -399,7 +399,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie12_True()
+	public void pair_Tie12_True()
 	{
 		p1.setC1(D3);p1.setC2(C6);
 		p2.setC1(D3);p2.setC2(H6);
@@ -418,7 +418,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie12_False()
+	public void pair_Tie12_False()
 	{
 		p1.setC1(D3);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(H6);
@@ -437,7 +437,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie13_True()
+	public void pair_Tie13_True()
 	{
 		p1.setC1(D3);p1.setC2(C6);
 		p2.setC1(D3);p2.setC2(HK);
@@ -456,7 +456,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie13_False()
+	public void pair_Tie13_False()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D3);p2.setC2(H6);
@@ -475,7 +475,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie23_True()
+	public void pair_Tie23_True()
 	{
 		p1.setC1(D3);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(H6);
@@ -494,7 +494,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_Tie23_False()
+	public void pair_Tie23_False()
 	{
 		p1.setC1(D3);p1.setC2(C6);
 		p2.setC1(D3);p2.setC2(H6);
@@ -513,7 +513,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void Pair_3Tie_True()
+	public void pair_3Tie_True()
 	{
 		p1.setC1(D3);p1.setC2(C6);
 		p2.setC1(D3);p2.setC2(H6);
@@ -533,7 +533,7 @@ public class TestCompare
 	}
 
 	@Test
-	public void TwoPair_P1_True()
+	public void twoPair_P1_True()
 	{
 		p1.setC1(D5);p1.setC2(C7);
 		p2.setC1(D5);p2.setC2(H2);
@@ -551,7 +551,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_P1_False()
+	public void twoPair_P1_False()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D5);p2.setC2(H6);
@@ -569,7 +569,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_P2_True()
+	public void twoPair_P2_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D5);p2.setC2(H6);
@@ -587,7 +587,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_P2_False()
+	public void twoPair_P2_False()
 	{
 		p1.setC1(D10);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H10);
@@ -605,7 +605,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_P3_True()
+	public void twoPair_P3_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D5);p2.setC2(H2);
@@ -623,7 +623,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_P3_False()
+	public void twoPair_P3_False()
 	{
 		p1.setC1(D10);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H10);
@@ -641,7 +641,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie12_True()
+	public void twoPair_Tie12_True()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H6);
@@ -660,7 +660,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie12_False()
+	public void twoPair_Tie12_False()
 	{
 		p1.setC1(D3);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(H6);
@@ -679,7 +679,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie13_True()
+	public void twoPair_Tie13_True()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H2);
@@ -698,7 +698,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie13_False()
+	public void twoPair_Tie13_False()
 	{
 		p1.setC1(D3);p1.setC2(CA);
 		p2.setC1(D5);p2.setC2(H6);
@@ -717,7 +717,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie23_True()
+	public void twoPair_Tie23_True()
 	{
 		p1.setC1(D5);p1.setC2(C2);
 		p2.setC1(D5);p2.setC2(H6);
@@ -736,7 +736,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_Tie23_False()
+	public void twoPair_Tie23_False()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H6);
@@ -755,7 +755,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void TwoPair_3Tie_True()
+	public void twoPair_3Tie_True()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H6);
@@ -775,7 +775,7 @@ public class TestCompare
 	}	
 
 	@Test
-	public void ThreePair_P1_True()
+	public void threePair_P1_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(H2);
@@ -793,7 +793,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_P1_False()
+	public void threePair_P1_False()
 	{
 		p1.setC1(D5);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(H6);
@@ -811,7 +811,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_P2_True()
+	public void threePair_P2_True()
 	{
 		p1.setC1(D5);p1.setC2(C3);
 		p2.setC1(D5);p2.setC2(HK);
@@ -829,7 +829,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_P2_False()
+	public void threePair_P2_False()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H5);
@@ -847,7 +847,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_P3_True()
+	public void threePair_P3_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(H5);
@@ -865,7 +865,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_P3_False()
+	public void threePair_P3_False()
 	{
 		p1.setC1(D10);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(HK);
@@ -883,7 +883,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie12_True()
+	public void threePair_Tie12_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(HK);
@@ -902,7 +902,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie12_False()
+	public void threePair_Tie12_False()
 	{
 		p1.setC1(D5);p1.setC2(C2);
 		p2.setC1(D5);p2.setC2(HK);
@@ -921,7 +921,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie13_True()
+	public void threePair_Tie13_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(H5);
@@ -940,7 +940,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie13_False()
+	public void threePair_Tie13_False()
 	{
 		p1.setC1(D3);p1.setC2(C5);
 		p2.setC1(D5);p2.setC2(HK);
@@ -959,7 +959,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie23_True()
+	public void threePair_Tie23_True()
 	{
 		p1.setC1(D3);p1.setC2(C5);
 		p2.setC1(D5);p2.setC2(HK);
@@ -978,7 +978,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_Tie23_False()
+	public void threePair_Tie23_False()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(HK);
@@ -997,7 +997,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void ThreePair_3Tie_True()
+	public void threePair_3Tie_True()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H6);
@@ -1017,7 +1017,7 @@ public class TestCompare
 	}	
 
 	@Test
-	public void FourPair_P1_True()
+	public void fourPair_P1_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(H2);
@@ -1053,7 +1053,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_P2_True()
+	public void fourPair_P2_True()
 	{
 		p1.setC1(D5);p1.setC2(C3);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1071,7 +1071,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_P2_False()
+	public void fourPair_P2_False()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D4);p2.setC2(H5);
@@ -1089,7 +1089,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_P3_True()
+	public void fourPair_P3_True()
 	{
 		p1.setC1(D10);p1.setC2(C3);
 		p2.setC1(D4);p2.setC2(H5);
@@ -1107,7 +1107,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_P3_False()
+	public void fourPair_P3_False()
 	{
 		p1.setC1(D10);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1125,7 +1125,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie12_True()
+	public void fourPair_Tie12_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1144,7 +1144,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie12_False()
+	public void fourPair_Tie12_False()
 	{
 		p1.setC1(D5);p1.setC2(C2);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1163,7 +1163,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie13_True()
+	public void fourPair_Tie13_True()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D3);p2.setC2(H5);
@@ -1182,7 +1182,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie13_False()
+	public void fourPair_Tie13_False()
 	{
 		p1.setC1(D3);p1.setC2(C5);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1201,7 +1201,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie23_True()
+	public void fourPair_Tie23_True()
 	{
 		p1.setC1(D3);p1.setC2(C5);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1220,7 +1220,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_Tie23_False()
+	public void fourPair_Tie23_False()
 	{
 		p1.setC1(D5);p1.setC2(CK);
 		p2.setC1(D5);p2.setC2(HK);
@@ -1239,7 +1239,7 @@ public class TestCompare
 	}
 	
 	@Test
-	public void FourPair_3Tie_True()
+	public void fourPair_3Tie_True()
 	{
 		p1.setC1(D5);p1.setC2(C6);
 		p2.setC1(D5);p2.setC2(H6);
@@ -1257,4 +1257,5 @@ public class TestCompare
 		assertTrue(p2.getMoney() == 103);
 		assertTrue(p3.getMoney() == 103);
 	}
+	
 }
