@@ -1,9 +1,9 @@
 *.txt
 *.docx
 TestRunner.java
-Tests.java
 /TestRunner.class
 /RankTests.class
 /TestRank.class
 /TestCompare.class
 TestCompare.java
+TestRank.java
