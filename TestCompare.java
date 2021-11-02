@@ -2565,4 +2565,228 @@ public class TestCompare
 			}
 		}
 	}
+	
+	@Test
+	public void flush_P2_False()
+	{
+		p1.setC1(C4);p1.setC2(CK);
+		p2.setC1(C4);p2.setC2(CK);
+		p3.setC1(C4);p3.setC2(CA);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 100);
+				assertTrue(p2.getMoney() == 100);
+				assertTrue(p3.getMoney() == 110);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_P3_True()
+	{
+		p1.setC1(C4);p1.setC2(CK);
+		p2.setC1(C4);p2.setC2(CK);
+		p3.setC1(C4);p3.setC2(CA);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 100);
+				assertTrue(p2.getMoney() == 100);
+				assertTrue(p3.getMoney() == 110);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_P3_False()
+	{
+		p1.setC1(C4);p1.setC2(CK);
+		p2.setC1(C4);p2.setC2(CA);
+		p3.setC1(C4);p3.setC2(CK);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 100);
+				assertTrue(p2.getMoney() == 110);
+				assertTrue(p3.getMoney() == 100);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_Tie12_True()
+	{
+		p1.setC1(C4);p1.setC2(CA);
+		p2.setC1(C4);p2.setC2(CA);
+		p3.setC1(C4);p3.setC2(CK);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 105);
+				assertTrue(p2.getMoney() == 105);
+				assertTrue(p3.getMoney() == 100);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_Tie12_False()
+	{
+		p1.setC1(C4);p1.setC2(CA);
+		p2.setC1(C4);p2.setC2(CK);
+		p3.setC1(C4);p3.setC2(CA);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 105);
+				assertTrue(p2.getMoney() == 100);
+				assertTrue(p3.getMoney() == 105);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_Tie13_True()
+	{
+		p1.setC1(C4);p1.setC2(CA);
+		p2.setC1(C4);p2.setC2(CK);
+		p3.setC1(C4);p3.setC2(CA);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 105);
+				assertTrue(p2.getMoney() == 100);
+				assertTrue(p3.getMoney() == 105);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
+	
+	@Test
+	public void flush_Tie13_False()
+	{
+		p1.setC1(C4);p1.setC2(CA);
+		p2.setC1(C4);p2.setC2(CA);
+		p3.setC1(C4);p3.setC2(CK);
+		com[0] = C2;
+		com[1] = C6;
+		com[2] = C4;
+		com[3] = S9;
+		com[4] = SJ;
+		Player table[] = {p1, p2, p3};
+		for(int j=0;j<5;j++)
+		{
+			for(int k=0;k<=5;k++)
+			{
+				Card temp = com[j];
+				com[j] = com[(k+1)%5];
+				com[(k+1)%5] = temp;
+				for(int i=0;i<table.length;i++)
+					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
+				c1.findWinner(table, com, 10);
+				assertTrue(p1.getMoney() == 105);
+				assertTrue(p2.getMoney() == 105);
+				assertTrue(p3.getMoney() == 100);
+				p1.setMoney(100);
+				p2.setMoney(100);
+				p3.setMoney(100);
+			}
+		}
+	}
 }
