@@ -1033,10 +1033,13 @@ public class Compare
 					count1++;
 				}
 				if(count1==3 && check.getValue()>p1TP)
-					p1TP=check.getValue();					
+				{
+					p1TP=check.getValue();		
+					count1++;
+				}
 				check=com[k];
 			}
-			count1=0;
+			count1=-1;
 		}	
 		//finds pair for p1
 		if(p1TP!=p1.getC1().getValue())//searches c1
@@ -1098,10 +1101,13 @@ public class Compare
 					count2++;
 				}
 				if(count2==3 && check.getValue()>p2TP)
-					p2TP=check.getValue();					
+				{
+					p2TP=check.getValue();		
+					count2++;
+				}
 				check=com[k];
 			}
-			count2=0;
+			count2=-1;
 		}		
 		//finds pair for p2
 		if(p2TP!=p2.getC1().getValue())//searches c1
