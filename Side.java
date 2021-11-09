@@ -1,18 +1,24 @@
 //class for sidepot
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Side
 {
 	private int pot;
-	private int count;
-	private ArrayList<Player> players = new ArrayList<Player>();
+	private ArrayList<Player> players;
 	
-	public Side(Player p)
+	public Side(ArrayList<Player> players, int pot)
 	{
-		players.add(p);
+		this.players = players;
+		this.pot = pot;
 	}
 	public int getPot()
 	{
 		return pot;
+	}
+	
+	public void setPot(int pot)
+	{
+		this.pot = pot;
 	}
 }

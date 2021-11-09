@@ -7,7 +7,10 @@ public class Player
 	private boolean allIn;
 	private String name;
 	private boolean out;
-	public Player(Card newC1, Card newC2, int newMoney, boolean newStatus, String newName, int newHandStrength, int newBet, boolean newAllIn, boolean newOut)
+	private boolean inSidePot;
+	
+	public Player(Card newC1, Card newC2, int newMoney, boolean newStatus, String newName, int newHandStrength, 
+			int newBet, boolean newAllIn, boolean newOut)
 	{
 		c1=newC1;//card 1
 		c2=newC2;//card 2
@@ -18,7 +21,9 @@ public class Player
 		bet=newBet;//player bet
 		allIn=newAllIn;//is player all in
 		out=newOut;//player is bankrupt
+		this.inSidePot = false;
 	}
+	
 	public void setMoney(int amount)
 	{
 		money=amount;
@@ -108,6 +113,14 @@ public class Player
 	public void setOut(boolean tf)
 	{
 		out=tf;
+	}
+	public void setInSidePot(boolean tf)
+	{
+		inSidePot = tf;
+	}
+	public boolean getInSidePot()
+	{
+		return inSidePot;
 	}
 	public String show()//returns necessary stats to show player
 	{

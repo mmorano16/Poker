@@ -150,6 +150,7 @@ public class Game
 			{
 				table[i].setAllIn(false);
 				table[i].setStatus(true);
+				table[i].setInSidePot(false);
 				if(table[i].getMoney() == 0)
 					table[i].setOut(true);
 				System.out.println(table[i].toString());

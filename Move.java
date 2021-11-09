@@ -10,7 +10,10 @@ public class Move
 	public int move(Player[] table, int dPos, int round, Card[] com)
 	{//pre:recieves tables of players and decides whose turn it is
 	//post: returns the value of the pot after the round of betting, sets status, bet and money appropriately 	
-		int count=0, bPos=-1, highBet=0, pot=0, bet=0;
+		int count=0, bPos=-1, highBet=0, pot=0, bet=0, sideAmount = 0;
+		boolean sideCreated = false;
+		Stack<Side> sidePots = new Stack<Side>();
+		
 		for(int i=0;i<9;i++)//sets status folded for players who are bankrupt 
 			if(table[i].getOut()==true)
 				table[i].setStatus(false);
@@ -26,6 +29,31 @@ public class Move
 					highBet=bet;
 					bPos=0;
 					count=0;
+				}
+				//create side pot
+				//move to after while loop?
+				//loop through each player to find all in
+				//add money to pot to be sent
+				//add boolean field to Player for part of side pot pot
+				if(table[0].getAllIn() == true)
+				{
+					ArrayList<Player> players = new ArrayList<Player>();
+					players.add(table[0]);
+					sideAmount = table[0].getBet();
+					sideCreated = true;
+					table[0].setInSidePot(true);
+					//cycles through players and adds players not all in and not folded to those eligible for sidepot
+					for(Player player : table)
+					{
+						if(player.getAllIn() == false && player.getStatus() == true && players.contains(player))
+						{
+							players.add(player);
+						}
+					}
+					sidePots.push(new Side(players, pot + sideAmount));
+					//need to figure out math for what player is in for to be added to side pot
+					//and leave the rest in main pot
+					pot = 0;
 				}
 			}
 			else if(bPos==-1)//if no one has bet
