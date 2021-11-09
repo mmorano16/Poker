@@ -4,6 +4,7 @@
 
 //determines order for player moves and amounts bet/won
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Move
 {
@@ -36,7 +37,8 @@ public class Move
 			{
 				if(table[(dPos+count)%9].getStatus()==true && table[(dPos+count)%9].getOut()==false)//if player is still in
 				{
-					bet=opponentMove(table[(dPos+count)%9], round, com, highBet);
+					//bet=opponentMove(table[(dPos+count)%9], round, com, highBet);
+					bet = userOpponentMove(table[(dPos+count)%9], highBet);
 					if(bet>0)
 					{
 						bPos=(dPos+count)%9;
@@ -59,7 +61,8 @@ public class Move
 				}
 				else if(table[(bPos+count)%9].getStatus()==true && table[(bPos+count)%9].getOut()==false)//opponents turn
 				{				
-					bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
+					//bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
+					bet = userOpponentMove(table[(dPos+count)%9], highBet);
 					if(bet>highBet)
 					{
 						bPos=(bPos+count)%9;
@@ -70,7 +73,7 @@ public class Move
 			}
 			count++;
 		}
-		
+
 		int index = 0;
 		for(Player player : table)
 		{
@@ -81,35 +84,46 @@ public class Move
 			}
 			index++;
 		}
-
+		//creates side pot if one is needed
 		if(sideCount == 1)
 		{
 			ArrayList<Player> players = new ArrayList<Player>();
 			int sidePot = 0;
-			
+			//sets player InSidePot variable true so that are not added to another side pot
 			table[sideIndex.get(0)].setInSidePot(true);
+			//sets amount to be added from each player to side pot
 			sideAmount = table[sideIndex.get(0)].getBet();
+			//adds player to players to be added that are eligible to win the side pot
 			players.add(table[sideIndex.get(0)]);
 			for(Player player : table)
 			{
+				//if the player has not folded add them to eligible players
 				if(player.getStatus() && !player.getInSidePot())
 				{
 					players.add(player);
 				}
-				
+				//if the player has bet more than the side amount, add that amount to side pot
+				//and remove that amount from the players bet and money
 				if(player.getBet() >= sideAmount)
 				{
 					sidePot += sideAmount;
+					player.setMoney(player.getMoney() - sideAmount);
 					player.setBet(player.getBet() - sideAmount);
 				}
+				//otherwise player has folded and has bet, add the players bet and set to 0
+				//this is for the event a player has bet less than the side amount and has since folded
+				//if the player has folded and not bet anything nothing will be added or changed
 				else
 				{
-					sidePot += sideAmount;
+					sidePot += player.getBet();
+					player.setMoney(player.getMoney() - player.getBet());
 					player.setBet(0);
 				}
 			}
+			//creates Side object
 			sidePots.add(new Side(players, sidePot));
 		}
+		
 		highBet=0;
 		for(int i=0;i<table.length;i++)//subtracts bets from player money
 			table[i].setMoney(table[i].getMoney()-table[i].getBet());
@@ -1918,27 +1932,32 @@ public class Move
 		int bet=0;
 		
 		System.out.println(currentBet);
-		if(currentBet==0)
+		if(p.getAllIn() == true)//if user is all in
 		{
-			System.out.println("What is your move? Enter:" + "\n" + "Check, Fold, Bet");
+			System.out.println("You are all in! You can't do anything.");
+			return 0;
+		}
+		if(currentBet==0)//no one has bet
+		{
+			System.out.println("What is your move? Enter:" + "\n" + "Check, Bet");
 			
 			while(validMove==false)
 			{
 				move=in.next();
-				if(move.equals("check") || move.equals("Check") || move.equals("fold") || move.equals("Fold") || move.equals("Bet") || move.equals("bet"))
+				if(move.equals("check") || move.equals("Check") || move.equals("Bet") || move.equals("bet"))
 					validMove=true;
 				else
 					System.out.println("Please enter valid move");
 			}
-			if(move.equals("fold") || move.equals("Fold"))
+			if(move.equals("check") || move.equals("Check"))
 			{
-				p.setStatus(false);
 				return 0;
 			}
 			else if(move.equals("bet") || move.equals("Bet"))
 			{
 				while(validBet==false)
 				{
+					System.out.println("You have $" + p.getMoney());
 					System.out.println("How much would you like to bet?");
 					try
 					{
@@ -1949,20 +1968,24 @@ public class Move
 					{
 						System.out.println("Please enter a numeric value");
 					}
-					if(bet>0 && bet<p.getMoney())
+					if(bet>0 && bet<=p.getMoney())
 						validBet=true;
 					else
 						System.out.println("Invalid Bet");
 				}
 				p.setBet(bet);
+				if(p.getMoney()==bet)//sets player all in if bet all money
+					p.setAllIn(true);
 				return bet;
 			}
 		}
-		else
+		else//someone has bet
 		{
 			System.out.println("Current Bet is: " + currentBet);
 			System.out.println("What is your move? Enter:" + "\n" + "Call, Raise, Fold");
-			
+			if(currentBet != 0 && currentBet == p.getBet())
+				return currentBet;
+				
 			while(validMove==false)
 			{
 				move=in.next();
@@ -1978,28 +2001,43 @@ public class Move
 			}
 			else if(move.equals("Raise") || move.equals("raise"))
 			{
-				while(validBet==false)
+				if(p.getMoney()<=currentBet)
+					System.out.println("You cannot raise you do not have enough money.");
+				else
 				{
-					System.out.println("How much would you like to bet?");
-					try
+					while(validBet==false)
 					{
-						sBet=in.next();
-						bet=Integer.parseInt(sBet);
+						System.out.println("Current bet is " + currentBet + " How much would you like to bet?");
+						try
+						{
+							sBet=in.next();
+							bet=Integer.parseInt(sBet);
+						}
+						catch(NumberFormatException e)
+						{
+							System.out.println("Please enter a numeric value");
+						}
+						if(bet>0 && bet<=p.getMoney() && bet>currentBet)
+							validBet=true;
+						else
+							System.out.println("Invalid Bet");
 					}
-					catch(NumberFormatException e)
-					{
-						System.out.println("Please enter a numeric value");
-					}
-					if(bet>0 && bet<p.getMoney() && bet>currentBet)
-						validBet=true;
-					else
-						System.out.println("Invalid Bet");
+					p.setBet(bet);
+					if(p.getMoney()==bet)
+						p.setAllIn(true);//sets player all in if bet all money
+					return bet;
 				}
-				p.setBet(bet);
-				return bet;
 			}
 			else if(move.equals("Call") || move.equals("call"))
 			{
+				//need to make instance if players money is less than bet
+				if(p.getMoney()<=currentBet)
+				{
+					p.setBet(p.getMoney());//sets player all in
+					//create side pot?
+					p.setAllIn(true);
+					return p.getMoney();
+				}
 				p.setBet(currentBet);
 				return currentBet;
 			}
