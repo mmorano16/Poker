@@ -18,7 +18,7 @@ public class TestSide
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1, p2, p3;
+    private Player p1, p2, p3, p4;
 	
     @Before
     public void testInitialize() 
@@ -36,14 +36,25 @@ public class TestSide
 		D8 = d1.deal(); D9 = d1.deal(); D10 = d1.deal(); DJ = d1.deal(); DQ = d1.deal(); DK = d1.deal(); DA = d1.deal();
 		H2 = d1.deal(); H3 = d1.deal(); H4 = d1.deal(); H5 = d1.deal(); H6 = d1.deal(); H7 = d1.deal();
 		H8 = d1.deal(); H9 = d1.deal(); H10 = d1.deal(); HJ = d1.deal(); HQ = d1.deal(); HK = d1.deal(); HA = d1.deal();
-		p1 = new Player(temp, temp, 100, true, "Player 1", 0, 0, false, false);
-		p2 = new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);
-		p3 = new Player(temp, temp, 100, true, "Player 3", 0, 0, false, false);
+		p1 = new Player(temp, temp, 10, true, "Player 1", 0, 0, false, false);
+		p2 = new Player(temp, temp, 15, true, "Player 2", 0, 0, false, false);
+		p3 = new Player(temp, temp, 15, true, "Player 3", 0, 0, false, false);
+		p4 = new Player(temp, temp, 15, true, "Player 3", 0, 0, false, false);
 	}
     
     @Test
     public void test()
     {
+		p1.setC1(temp);p1.setC2(temp);
+		p2.setC1(temp);p2.setC2(temp);
+		p3.setC1(temp);p3.setC2(temp);
+		p4.setC1(temp);p4.setC2(temp);
+		com[0] = temp;
+		com[1] = temp;
+		com[2] = temp;
+		com[3] = temp;
+		com[4] = temp;
+		Player table[] = {p1, p2, p3, p4};
     	
     }
 }
