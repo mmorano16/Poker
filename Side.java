@@ -21,4 +21,9 @@ public class Side
 	{
 		this.pot = pot;
 	}
+	
+	public ArrayList<Player> getPlayers()
+	{
+		return players;
+	}
 }

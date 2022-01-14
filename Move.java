@@ -4,17 +4,14 @@
 
 //determines order for player moves and amounts bet/won
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class Move
 {
-	public int move(Player[] table, int dPos, int round, Card[] com)
+	public int move(Player[] table, int dPos, int round, Card[] com, ArrayList<Integer> sideIndex, Stack<Side> sidePots)
 	{//pre:recieves tables of players and decides whose turn it is
 	//post: returns the value of the pot after the round of betting, sets status, bet and money appropriately 	
-		int count=0, bPos=-1, highBet=0, pot=0, bet=0, sideAmount = 0, sideCount = 0;
+		int count=0, bPos=-1, highBet=0, pot=0, bet=0, sideAmount = 0, sideCount = 0, index;
 		boolean sideCreated = false;
-		ArrayList<Integer> sideIndex = new ArrayList<Integer>();
-		Stack<Side> sidePots = new Stack<Side>();
 		
 		for(int i=0;i<9;i++)//sets status folded for players who are bankrupt 
 			if(table[i].getOut()==true)
@@ -62,7 +59,7 @@ public class Move
 				else if(table[(bPos+count)%9].getStatus()==true && table[(bPos+count)%9].getOut()==false)//opponents turn
 				{				
 					//bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
-					bet = userOpponentMove(table[(dPos+count)%9], highBet);
+					bet = userOpponentMove(table[(bPos+count)%9], highBet);
 					if(bet>highBet)
 					{
 						bPos=(bPos+count)%9;
@@ -73,8 +70,8 @@ public class Move
 			}
 			count++;
 		}
-
-		int index = 0;
+		
+		index = 0;
 		for(Player player : table)
 		{
 			if(player.getAllIn())
@@ -90,7 +87,7 @@ public class Move
 			ArrayList<Player> players = new ArrayList<Player>();
 			int sidePot = 0;
 			//sets player InSidePot variable true so that are not added to another side pot
-			table[sideIndex.get(0)].setInSidePot(true);
+//Remove?	//table[sideIndex.get(0)].setInSidePot(true);
 			//sets amount to be added from each player to side pot
 			sideAmount = table[sideIndex.get(0)].getBet();
 			//adds player to players to be added that are eligible to win the side pot
@@ -101,6 +98,8 @@ public class Move
 				if(player.getStatus() && !player.getInSidePot())
 				{
 					players.add(player);
+					//sets player InSidePot variable true so that are not added to another side pot
+					player.setInSidePot(true);
 				}
 				//if the player has bet more than the side amount, add that amount to side pot
 				//and remove that amount from the players bet and money
@@ -207,7 +206,8 @@ public class Move
 	public int playerMove(Player p, int currentBet)//user move
 	{
 		Scanner in=new Scanner(System.in);
-		
+		Simple.print("This is Player " + p.getName() + "s move\n");;
+
 		String move="", sBet="";
 		boolean validMove=false, validBet=false;
 		int bet=0;
@@ -1926,7 +1926,7 @@ public class Move
 	public int userOpponentMove(Player p, int currentBet)
 	{
 		Scanner in=new Scanner(System.in);
-		
+		Simple.print("This is Player " + p.getName() + "s move\n");;
 		String move="", sBet="";
 		boolean validMove=false, validBet=false;
 		int bet=0;

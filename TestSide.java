@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class TestSide 
 {
@@ -18,7 +19,9 @@ public class TestSide
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1, p2, p3, p4;
+    private Player p1, p2, p3, p4, exp;
+    private Stack<Side> sidePots = new Stack<Side>();
+    private ArrayList<Integer> sideIndex = new ArrayList<Integer>();
 	
     @Before
     public void testInitialize() 
@@ -39,7 +42,8 @@ public class TestSide
 		p1 = new Player(temp, temp, 10, true, "Player 1", 0, 0, false, false);
 		p2 = new Player(temp, temp, 15, true, "Player 2", 0, 0, false, false);
 		p3 = new Player(temp, temp, 15, true, "Player 3", 0, 0, false, false);
-		p4 = new Player(temp, temp, 15, true, "Player 3", 0, 0, false, false);
+		p4 = new Player(temp, temp, 15, true, "Player 4", 0, 0, false, false);
+		exp = new Player(temp, temp, 0, false, "extra player", 0, 0, false, true);
 	}
     
     @Test
@@ -54,7 +58,17 @@ public class TestSide
 		com[2] = temp;
 		com[3] = temp;
 		com[4] = temp;
-		Player table[] = {p1, p2, p3, p4};
+		Player table[] = {p1, p2, p3, p4, exp, exp, exp, exp, exp};
+    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	ArrayList<Player> expResult = new ArrayList<Player>();
+    	expResult.add(p1);
+    	expResult.add(p3);
+    	expResult.add(p4);
+    	Simple.print("Main Pot:" + pot);
+    	Simple.print("Side Pot: " + sidePots.get(0).getPot());
     	
+    	assertTrue(pot == 10);
+    	assertTrue(sidePots.get(0).getPot() == 35);
+    	assertArrayEquals(expResult.toArray(), sidePots.get(0).getPlayers().toArray());
     }
 }

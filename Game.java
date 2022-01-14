@@ -16,6 +16,9 @@ public class Game
 		Player  winner=table[0];
 		int pos=0, dPos=0, pot=0, round=0, turn=0, bet=0, highBet=0, playerCount=9;
 		Card temp=new Card("temp", "temp", -1);
+		ArrayList<Integer> sideIndex;
+		Stack<Side> sidePots;
+		
 		for(int i=0;i<values.length;i++)
             values[i]=i;
 		
@@ -37,6 +40,10 @@ public class Game
 		//add while loop for continuous game here
 		while(playerCount > 1)
 		{
+			//reset side pot list and stack for new hand
+			sideIndex = new ArrayList<Integer>();
+			sidePots = new Stack<Side>();
+			
 			pos = 0; pot = 0;
 			for(int i=0;i<table.length;i++)//deals first cards
 				table[i].setC1(d1.deal());
@@ -47,7 +54,7 @@ public class Game
 //				System.out.println(table[i].toString());
 			Simple.print(table[0].show());
 			//round of betting
-			pot+=m1.move(table, dPos, round, com);
+			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
 			System.out.println("Pot: " + pot);
 //			for(int i=0;i<table.length;i++)
 //				System.out.println(table[i].toString());
@@ -66,7 +73,7 @@ public class Game
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com);
+			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
 			System.out.println("Pot: " + pot);
 			//adds turn card		
 			com[pos]=d1.deal();
@@ -78,7 +85,7 @@ public class Game
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com);
+			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
 			System.out.println("Pot: " + pot);
 			//adds river card
 			com[pos]=d1.deal();
@@ -90,7 +97,7 @@ public class Game
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com);
+			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
 			System.out.println("Pot: " + pot);
 			
 //			for(int i=0;i<table.length;i++)
