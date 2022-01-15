@@ -282,11 +282,11 @@ public class Move
 		if(result==-1)//sets player folds
 			p.setStatus(false);
 		if(result==0)//player checks
-			System.out.println("Player " + p.getName() + " Checks");
+			System.out.println(p.getName() + "\t" + " Checks");
 		else if(result>0)//player bets/raises
-			System.out.println("Player " + p.getName() + " Bets: " + result);
+			System.out.println(p.getName() + "\t"  + " Bets: " + result);
 		else if(result==-1)//prints player folds
-			System.out.println("Player " + p.getName() + " Folds");
+			System.out.println(p.getName() + "\t"  + " Folds");
 		else//this should not print
 			System.out.println("Something went wrong with Player " + p.getName());
 		//following are to set variables based on player move

@@ -40,6 +40,11 @@ public class Game
 		
 		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin");
 		in.nextLine();
+		Simple.print("Would you like to rename players? Y/N");
+		if(in.next().equals("Y"))
+		{
+			renamePlayers(table);
+		}
 		//add while loop for continuous game here
 		while(playerCount > 1)
 		{
@@ -241,4 +246,16 @@ public class Game
 		}
 		System.out.println("\n" + winner.getName() + " Is the winner!");
     }
+
+	private static void renamePlayers(Player[] table) 
+	{
+		Scanner in = new Scanner(System.in);
+		for(Player player : table)
+		{
+			Simple.print("Current Name: " + player.getName());
+			Simple.print("Enter New Name:");
+			player.setName(in.next());
+		}
+		
+	}
 }

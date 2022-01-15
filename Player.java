@@ -98,6 +98,10 @@ public class Player
 	{
 		return name;
 	}
+	public void setName(String newName)
+	{
+		name = newName;
+	}
 	public void setAllIn(boolean tf)
 	{
 		allIn=tf;
