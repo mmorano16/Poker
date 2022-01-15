@@ -38,8 +38,11 @@ public class Game
 		table[7]=new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);//sets players hand
 		table[8]=new Player(temp, temp, 100, true, "Player 9", 0, 0, false, false);//sets players hand
 		
-		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin");
-		in.nextLine();
+		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin or Type 'Load' to Load a Previously Ssaved Same");
+		if(in.nextLine().equals("Load"))
+		{
+			loadGame();
+		}
 		Simple.print("Would you like to rename players? Y/N");
 		if(in.next().equals("Y"))
 		{
@@ -246,6 +249,12 @@ public class Game
 		}
 		System.out.println("\n" + winner.getName() + " Is the winner!");
     }
+
+	private static void loadGame() 
+	{
+		// TODO Auto-generated method stub
+		
+	}
 
 	private static void renamePlayers(Player[] table) 
 	{
