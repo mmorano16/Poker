@@ -182,7 +182,16 @@ public class Game
 					c1.findWinner(sidePlayers, com, side.getPot(), true);
 				}
 				//find the winner for the main pot with players not in any side pots
-				c1.findWinner(mainPlayers, com, pot, false);
+				if(mainPlayers.length > 1)
+				{
+					c1.findWinner(mainPlayers, com, pot, false);
+				}
+				else //if there is only one player not in a side pot
+				{	 //might not be possible but just in case
+					System.out.print(winner.getName() + " wins.");
+					System.out.print(".\n");
+					winner.setMoney(winner.getMoney()+pot);
+				}
 			}
 			
 			for(int i=0;i<table.length;i++)//sets player status and all in to false and sets players with 0 money to out

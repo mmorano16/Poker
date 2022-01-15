@@ -10,7 +10,7 @@ public class Move
 	public int move(Player[] table, int dPos, int round, Card[] com, ArrayList<Integer> sideIndex, Stack<Side> sidePots)
 	{//pre:recieves tables of players and decides whose turn it is
 	//post: returns the value of the pot after the round of betting, sets status, bet and money appropriately 	
-		int count=0, bPos=-1, highBet=0, pot=0, bet=0, sideAmount = 0, sideCount = 0, index;
+		int count=0, bPos=-1, highBet=0, pot=0, bet=0;
 		boolean sideCreated = false;
 		
 		for(int i=0;i<9;i++)//sets status folded for players who are bankrupt 
@@ -71,7 +71,24 @@ public class Move
 			count++;
 		}
 		
+		createSidePots(table, sideIndex, sidePots);
+				
+		highBet=0;
+		for(int i=0;i<table.length;i++)//subtracts bets from player money
+			table[i].setMoney(table[i].getMoney()-table[i].getBet());
+		for(int i=0;i<table.length;i++)//adds bets to pot and resets bets
+		{
+			pot+=table[i].getBet();
+			table[i].setBet(0);
+		}
+		return pot;
+	}
+	
+	public void createSidePots(Player[] table, ArrayList<Integer> sideIndex, Stack<Side> sidePots) 
+	{
+		int sideAmount = 0, sideCount = 0, index, sidePot = 0;
 		index = 0;
+		ArrayList<Player> players = new ArrayList<Player>();
 		for(Player player : table)
 		{
 			if(player.getAllIn())
@@ -84,8 +101,6 @@ public class Move
 		//creates side pot if one is needed
 		if(sideCount == 1)
 		{
-			ArrayList<Player> players = new ArrayList<Player>();
-			int sidePot = 0;
 			//sets player InSidePot variable true so that are not added to another side pot
 			table[sideIndex.get(0)].setInSidePot(true);
 			//sets amount to be added from each player to side pot
@@ -120,18 +135,87 @@ public class Move
 			//creates Side object
 			sidePots.add(new Side(players, sidePot));
 		}
-		
-		highBet=0;
-		for(int i=0;i<table.length;i++)//subtracts bets from player money
-			table[i].setMoney(table[i].getMoney()-table[i].getBet());
-		for(int i=0;i<table.length;i++)//adds bets to pot and resets bets
+		else if(sideCount > 1)
 		{
-			pot+=table[i].getBet();
-			table[i].setBet(0);
+			int startIndex, endIndex;			
+			ArrayList<Player> sidePotPlayers = new ArrayList<Player>();
+			
+			for(Integer sIndex : sideIndex)
+				sidePotPlayers.add(table[sIndex]);
+			
+			sortSidePlayers(sidePotPlayers);
+			
+			for(int i = 0; i < sidePotPlayers.size(); i++)
+			{
+				startIndex = i;
+				endIndex = startIndex;
+				//while endIndex is not at the end of the list and the next player has the same bet increase end index
+				while(endIndex < sidePotPlayers.size() && 
+						sidePotPlayers.get(i + 1).getBet() == sidePotPlayers.get(i).getBet())
+				{
+					endIndex++;
+				}
+				for(Player player : table)
+				{
+					if(startIndex == endIndex)
+					{
+						table[sideIndex.get(i)].setInSidePot(true);
+						startIndex++;
+					}
+					else if(startIndex < endIndex)
+					{
+						table[sideIndex.get(i)].setInSidePot(true);
+						startIndex++;
+						i++;
+					}
+					//if the player has not folded add them to eligible players
+					if(player.getStatus() && !player.getInSidePot())
+					{
+						players.add(player);
+					}
+					//if the player has bet more than the side amount, add that amount to side pot
+					//and remove that amount from the players bet and money
+					if(player.getBet() >= sideAmount && !player.getInSidePot())
+					{
+						sidePot += sideAmount;
+						player.setMoney(player.getMoney() - sideAmount);
+						player.setBet(player.getBet() - sideAmount);
+					}
+					//otherwise player has folded and has bet, add the players bet and set to 0
+					//this is for the event a player has bet less than the side amount and has since folded
+					//if the player has folded and not bet anything nothing will be added or changed
+					else
+					{
+						sidePot += player.getBet();
+						player.setMoney(player.getMoney() - player.getBet());
+						player.setBet(0);
+					}
+				}
+				sidePots.add(new Side(players, sidePot));
+			}
 		}
-		sideCount = 0;
-		return pot;
 	}
+	
+	public void sortSidePlayers(ArrayList<Player> players) 
+	{
+		int pos;
+		Player temp;
+		for(int i = 0; i < players.size(); i++)
+		{
+			pos = i;
+			for(int j = i+1; j < players.size(); j++)
+			{
+				if(players.get(j).getBet() < players.get(pos).getBet())
+				{
+					pos = j;
+				}
+			}
+			temp = players.get(pos);
+			players.set(pos, players.get(i));
+			players.set(i, temp);
+		}
+	}
+	
 	public int opponentMove(Player p, int round, Card[] com, int currentBet)
 	{//pre: recieves player information to decide what move to make
 	//post: returns 0 if the player folds sets status to fold, 0 if the player checks, value>0 is the amount bet

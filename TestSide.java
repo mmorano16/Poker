@@ -122,4 +122,28 @@ public class TestSide
     	assertTrue(p1.getMoney() == 35);
     	assertTrue(p3.getMoney() == 15);
     }
+    
+    @Test
+    public void sortArrayList()
+    {
+    	p1.setBet(20);
+    	p2.setBet(10);
+    	p3.setBet(30);
+    	p4.setBet(10);
+    	exp.setBet(5);
+    	ArrayList<Player> players = new ArrayList<Player>();
+    	players.add(p1);
+    	players.add(p2);
+    	players.add(p3);
+    	players.add(p4);
+    	players.add(exp);
+    	ArrayList<Player> results = new ArrayList<Player>();
+    	results.add(exp);
+    	results.add(p2);
+    	results.add(p4);
+    	results.add(p1);
+    	results.add(p3);
+    	m1.sortSidePlayers(players);
+    	assertArrayEquals(players.toArray(), results.toArray());
+    }
 }
