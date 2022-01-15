@@ -50,8 +50,8 @@ public class Compare
 				}
 			}
 		}
-		for(int i=0;i<tie.size();i++)
-			System.out.println(tie.get(i));
+//		for(int i=0;i<tie.size();i++)
+//			System.out.println(tie.get(i));
 		if(tie.size()>=2)
 		{
 			split=pot/tie.size();
@@ -75,7 +75,7 @@ public class Compare
 			{
 				System.out.print(" Side Pot");
 			}
-			System.out.print(".\n");
+			System.out.print("."+"\n\n");
 			winner.setMoney(winner.getMoney()+pot);
 		}
 		

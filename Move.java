@@ -7,11 +7,10 @@ import java.util.*;
 
 public class Move
 {
-	public int move(Player[] table, int dPos, int round, Card[] com, ArrayList<Integer> sideIndex, Stack<Side> sidePots)
+	public int move(Player[] table, int dPos, int round, int currentPot, Card[] com, ArrayList<Integer> sideIndex, Stack<Side> sidePots)
 	{//pre:recieves tables of players and decides whose turn it is
 	//post: returns the value of the pot after the round of betting, sets status, bet and money appropriately 	
 		int count=0, bPos=-1, highBet=0, pot=0, bet=0;
-		boolean sideCreated = false;
 		
 		for(int i=0;i<9;i++)//sets status folded for players who are bankrupt 
 			if(table[i].getOut()==true)
@@ -34,8 +33,8 @@ public class Move
 			{
 				if(table[(dPos+count)%9].getStatus()==true && table[(dPos+count)%9].getOut()==false)//if player is still in
 				{
-					//bet=opponentMove(table[(dPos+count)%9], round, com, highBet);
-					bet = userOpponentMove(table[(dPos+count)%9], highBet);
+					bet=opponentMove(table[(dPos+count)%9], round, com, highBet);
+					//bet = userOpponentMove(table[(dPos+count)%9], highBet);
 					if(bet>0)
 					{
 						bPos=(dPos+count)%9;
@@ -58,8 +57,8 @@ public class Move
 				}
 				else if(table[(bPos+count)%9].getStatus()==true && table[(bPos+count)%9].getOut()==false)//opponents turn
 				{				
-					//bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
-					bet = userOpponentMove(table[(bPos+count)%9], highBet);
+					bet=opponentMove(table[(bPos+count)%9], round, com, highBet);
+					//bet = userOpponentMove(table[(bPos+count)%9], highBet);
 					if(bet>highBet)
 					{
 						bPos=(bPos+count)%9;
@@ -71,7 +70,7 @@ public class Move
 			count++;
 		}
 		
-		createSidePots(table, sideIndex, sidePots);
+		createSidePots(table, sideIndex, sidePots, currentPot);
 				
 		highBet=0;
 		for(int i=0;i<table.length;i++)//subtracts bets from player money
@@ -81,17 +80,20 @@ public class Move
 			pot+=table[i].getBet();
 			table[i].setBet(0);
 		}
-		return pot;
+		if(sideIndex.size() > 0)
+			return pot;
+		else
+			return pot + currentPot;
 	}
 	
-	public void createSidePots(Player[] table, ArrayList<Integer> sideIndex, Stack<Side> sidePots) 
+	public void createSidePots(Player[] table, ArrayList<Integer> sideIndex, Stack<Side> sidePots, int currentPot) 
 	{
 		int sideAmount = 0, sideCount = 0, index, sidePot = 0;
 		index = 0;
 		ArrayList<Player> players;
 		for(Player player : table)
 		{
-			if(player.getAllIn())
+			if(player.getAllIn() && !player.getInSidePot())
 			{
 				sideCount++;
 				sideIndex.add(index);
@@ -134,7 +136,7 @@ public class Move
 				}
 			}
 			//creates Side object
-			sidePots.add(new Side(players, sidePot));
+			sidePots.add(new Side(players, sidePot + currentPot));
 		}
 		else if(sideCount > 1)
 		{
@@ -204,7 +206,7 @@ public class Move
 						player.setBet(0);
 					}
 				}
-				sidePots.add(new Side(players, sidePot));
+				sidePots.add(new Side(players, sidePot + currentPot));
 			}
 		}
 	}
@@ -300,13 +302,13 @@ public class Move
 	public int playerMove(Player p, int currentBet)//user move
 	{
 		Scanner in=new Scanner(System.in);
-		Simple.print("This is Player " + p.getName() + "s move\n");;
+		Simple.print(p.getName() + "'s move\n");;
 
 		String move="", sBet="";
 		boolean validMove=false, validBet=false;
 		int bet=0;
 		
-		System.out.println(currentBet);
+		//System.out.println(currentBet);
 		if(p.getAllIn() == true)//if user is all in
 		{
 			System.out.println("You are all in! You can't do anything.");
@@ -319,6 +321,7 @@ public class Move
 			while(validMove==false)
 			{
 				move=in.next();
+				Simple.print("");
 				if(move.equals("check") || move.equals("Check") || move.equals("Bet") || move.equals("bet"))
 					validMove=true;
 				else
@@ -337,6 +340,7 @@ public class Move
 					try
 					{
 						sBet=in.next();
+						Simple.print("");
 						bet=Integer.parseInt(sBet);
 					}
 					catch(NumberFormatException e)
@@ -364,6 +368,7 @@ public class Move
 			while(validMove==false)
 			{
 				move=in.next();
+				Simple.print("");
 				if(move.equals("Call") || move.equals("call") || move.equals("Raise") || move.equals("raise") || move.equals("Fold") || move.equals("fold"))
 					validMove=true;
 				else
@@ -386,6 +391,7 @@ public class Move
 						try
 						{
 							sBet=in.next();
+							Simple.print("");
 							bet=Integer.parseInt(sBet);
 						}
 						catch(NumberFormatException e)
@@ -567,7 +573,7 @@ public class Move
 					return -1;
 			}
 		}
-		System.out.println("bet: " + bet);
+		//System.out.println("bet: " + bet);
 		if(bet > p.getMoney())//sets bet to player money if bet is greater
 			bet = p.getMoney();
 		return bet;

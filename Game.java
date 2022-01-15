@@ -37,6 +37,9 @@ public class Game
 		table[6]=new Player(temp, temp, 100, true, "Player 6", 0, 0, false, false);//sets players hand
 		table[7]=new Player(temp, temp, 100, true, "Player 7", 0, 0, false, false);//sets players hand
 		table[8]=new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);//sets players hand
+		
+		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin");
+		in.nextLine();
 		//add while loop for continuous game here
 		while(playerCount > 1)
 		{
@@ -54,7 +57,8 @@ public class Game
 //				System.out.println(table[i].toString());
 			Simple.print(table[0].show());
 			//round of betting
-			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
+			pot=m1.move(table, dPos, round, pot, com, sideIndex, sidePots);
+			sideIndex.clear();
 			System.out.println("Pot: " + pot);
 //			for(int i=0;i<table.length;i++)
 //				System.out.println(table[i].toString());
@@ -69,11 +73,12 @@ public class Game
 			System.out.println("The Flop: ");
 			for(int i=0;i<pos;i++)
 				System.out.print(com[i] + ", ");
-			System.out.println();	
+			System.out.println("\n");	
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
+			pot=m1.move(table, dPos, round, pot, com, sideIndex, sidePots);
+			sideIndex.clear();
 			System.out.println("Pot: " + pot);
 			//adds turn card		
 			com[pos]=d1.deal();
@@ -81,11 +86,12 @@ public class Game
 			System.out.println("\n\n" + "The Turn:");
 			for(int i=0;i<pos;i++)
 				System.out.print(com[i] + ", "); 
-			System.out.println();
+			System.out.println("\n");
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
+			pot=m1.move(table, dPos, round, pot, com, sideIndex, sidePots);
+			sideIndex.clear();
 			System.out.println("Pot: " + pot);
 			//adds river card
 			com[pos]=d1.deal();
@@ -93,11 +99,12 @@ public class Game
 			System.out.println("\n\n"+"The River:"); 
 			for(int i=0;i<pos;i++)
 				System.out.print(com[i] + ", ");
-			System.out.println();
+			System.out.println("\n");
 			//round of betting
 			round++;
 			Simple.print(table[0].show());
-			pot+=m1.move(table, dPos, round, com, sideIndex, sidePots);
+			pot=m1.move(table, dPos, round, pot, com, sideIndex, sidePots);
+			sideIndex.clear();
 			System.out.println("Pot: " + pot);
 			
 //			for(int i=0;i<table.length;i++)
@@ -110,44 +117,34 @@ public class Game
 					switch(r1.rankHand(table[i].getC1(), table[i].getC2(), com))//finds each players hand strength
 					{
 						case 9:
-							table[i].setHandStrength(9);
-							System.out.println("Royal Flush");
+							table[i].setHandStrength(9);//royal flush
 							break;
 						case 8:
-							table[i].setHandStrength(8);
-							System.out.println("Striaght Flush " + i);
+							table[i].setHandStrength(8);//straight flush
 							break;
 						case 7:
-							table[i].setHandStrength(7);
-							System.out.println("Four of a Kind " + i);
+							table[i].setHandStrength(7);//four of a kind
 							break;
 						case 6:
-							table[i].setHandStrength(6);
-							System.out.println("Full House " + i);
+							table[i].setHandStrength(6);//full house
 							break;
 						case 5:
-							table[i].setHandStrength(5);
-							System.out.println("Flush " + i);
+							table[i].setHandStrength(5);//flush
 							break;
 						case 4:
-							table[i].setHandStrength(4);
-							System.out.println("Straight " + i);
+							table[i].setHandStrength(4);//straight
 							break;
 						case 3:
-							table[i].setHandStrength(3);
-							System.out.println("Three of a Kind " + i);
+							table[i].setHandStrength(3);//three of a kind
 							break;
 						case 2:
-							table[i].setHandStrength(2);
-							System.out.println("Two Pair " + i);
+							table[i].setHandStrength(2);//two pair
 							break;
 						case 1:
-							table[i].setHandStrength(1);
-							System.out.println("Pair " + i);
+							table[i].setHandStrength(1);//pair
 							break;
 						case 0:
-							table[i].setHandStrength(0);
-							System.out.println("High Card " + i);
+							table[i].setHandStrength(0);//high card
 							break;
 					}
 				}
@@ -158,7 +155,6 @@ public class Game
 			}
 			else //there are side pots
 			{
-				int sidePlayerCount = 0;
 				ArrayList<Player> tempList = new ArrayList<Player>();
 				//find players that are not in any side pots and add to array list
 				for(Player player : table)
@@ -189,19 +185,32 @@ public class Game
 				else //if there is only one player not in a side pot
 				{	 //might not be possible but just in case
 					System.out.print(winner.getName() + " wins.");
-					System.out.print(".\n");
+					System.out.print(".");
+					Simple.print("\n");
 					winner.setMoney(winner.getMoney()+pot);
 				}
 			}
-			
+			Simple.print("Community Cards:");
+			for(Card card : com)
+			{
+				System.out.print(card.toString() + ", ");
+			}
+			Simple.print("\n");
 			for(int i=0;i<table.length;i++)//sets player status and all in to false and sets players with 0 money to out
 			{
+				if(table[i].getStatus())
+				{
+					Simple.print(table[i].getName() + ", " + table[i].show() + ", " + table[i].showHandStrength());
+				}
+				else
+				{
+					Simple.print(table[i].getName() + ", Folded, Money:" + table[i].getMoney());
+				}
 				table[i].setAllIn(false);
 				table[i].setStatus(true);
 				table[i].setInSidePot(false);
 				if(table[i].getMoney() == 0)
 					table[i].setOut(true);
-				System.out.println(table[i].toString());
 			}
 			d1=new Deck(ranks, suits, values);//resets deck
 			d1.shuffle();
@@ -213,15 +222,16 @@ public class Game
 				dPos++;
 				dPos %= 9;
 			}
-			sideIndex.clear();
 			//checks to see if game has a winner
 			playerCount = 9;
 			for(int i=0;i<table.length;i++)
 				if(table[i].getOut())
 					playerCount--;
-
-			Simple.print("Press Enter to Continue");
-			in.nextLine();
+			if(!table[0].getOut())
+			{
+				Simple.print("\nPress Enter to Continue");
+				in.nextLine();
+			}
 		}
 		//Player winner = new Player();
 		for(Player player : table)
@@ -229,6 +239,6 @@ public class Game
 			if(player.getOut() == false)
 				winner = player;
 		}
-		System.out.println(winner.getName() + " Is the winner!");
+		System.out.println("\n" + winner.getName() + " Is the winner!");
     }
 }

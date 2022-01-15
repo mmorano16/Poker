@@ -124,7 +124,7 @@ public class Player
 	}
 	public String show()//returns necessary stats to show player
 	{
-		return "Hand: " + showHand() + ", Money: " + money + ", Current Hand: " + showHandStrength();
+		return "Hand: " + showHand() + ", Money: " + money;
 	}
 	public String showHandStrength()//returns hand strength name
 	{

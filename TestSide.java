@@ -60,7 +60,7 @@ public class TestSide
 		com[3] = temp;
 		com[4] = temp;
 		Player table[] = {p1, p2, p3, p4, exp, exp, exp, exp, exp};
-    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	int pot = m1.move(table, 0, 0, 0, com, sideIndex, sidePots);
     	ArrayList<Player> expResult = new ArrayList<Player>();
     	expResult.add(p1);
     	expResult.add(p3);
@@ -86,7 +86,7 @@ public class TestSide
 		com[3] = D7;
 		com[4] = C9;
 		Player table[] = {p1, p2, p3, p4, exp, exp, exp, exp, exp};
-    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	int pot = m1.move(table, 0, 0, 0, com, sideIndex, sidePots);
     	
     	if(sidePots.size() < 1)
 		{
@@ -124,7 +124,7 @@ public class TestSide
     	assertTrue(p3.getMoney() == 15);
     }
     
-    @Test
+    //@Test
     public void multipleSidePots()
     {
 		p1.setC1(temp);p1.setC2(temp);
@@ -138,7 +138,38 @@ public class TestSide
 		com[3] = temp;
 		com[4] = temp;
 		Player table[] = {p1, p2, p3, p4, p5, exp, exp, exp, exp};
-    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	int pot = m1.move(table, 0, 0, 0, com, sideIndex, sidePots);
+    	ArrayList<Player> players1 = new ArrayList<Player>();
+    	ArrayList<Player> players2 = new ArrayList<Player>();
+    	players1.add(p1);players1.add(p2);players1.add(p3);players1.add(p4);players1.add(p5);
+    	Side expected1 = new Side(players1,50);
+    	players2.add(p2);players2.add(p3);players2.add(p4);players2.add(p5);
+    	Side expected2 = new Side(players2,50);
+    	
+    	assertArrayEquals(expected1.getPlayers().toArray(), sidePots.get(0).getPlayers().toArray());
+    	assertTrue(sidePots.get(0).getPot() == 50);
+    	assertArrayEquals(expected2.getPlayers().toArray(), sidePots.get(1).getPlayers().toArray());
+    	assertTrue(sidePots.get(1).getPot() == 40);
+    	assertTrue(pot == 10);
+    }
+    
+    @Test
+    public void multipleSidePotsMultipleRounds()
+    {
+		p1.setC1(temp);p1.setC2(temp);
+		p2.setC1(temp);p2.setC2(temp);
+		p3.setC1(temp);p3.setC2(temp);
+		p4.setC1(temp);p4.setC2(temp);
+		p5.setC1(temp);p5.setC2(temp);
+		com[0] = temp;
+		com[1] = temp;
+		com[2] = temp;
+		com[3] = temp;
+		com[4] = temp;
+		Player table[] = {p1, p2, p3, p4, p5, exp, exp, exp, exp};
+    	int pot = m1.move(table, 0, 0, 0, com, sideIndex, sidePots);
+    	sideIndex.clear();
+    	pot = m1.move(table, 0, 1, pot, com, sideIndex, sidePots);
     	ArrayList<Player> players1 = new ArrayList<Player>();
     	ArrayList<Player> players2 = new ArrayList<Player>();
     	players1.add(p1);players1.add(p2);players1.add(p3);players1.add(p4);players1.add(p5);
