@@ -286,7 +286,7 @@ public class Move
 		else if(result>0)//player bets/raises
 			System.out.println("Player " + p.getName() + " Bets: " + result);
 		else if(result==-1)//prints player folds
-			System.out.println("Player " + p.getName() + " folds");
+			System.out.println("Player " + p.getName() + " Folds");
 		else//this should not print
 			System.out.println("Something went wrong with Player " + p.getName());
 		//following are to set variables based on player move
@@ -1068,7 +1068,7 @@ public class Move
 					break;
 			}
 		}  
-		System.out.println("bet: " + bet);
+		//System.out.println("bet: " + bet);
 		if(bet > p.getMoney())
 			bet = p.getMoney();
 		return bet;
@@ -1568,7 +1568,7 @@ public class Move
 					break;
 			}
 		}  
-		System.out.println("bet: " + bet);
+		//System.out.println("bet: " + bet);
 		if(bet > p.getMoney())
 			bet = p.getMoney();
 		return bet;
@@ -2014,7 +2014,7 @@ public class Move
 					break;
 			}
 		}  
-		System.out.println("bet: " + bet);
+		//System.out.println("bet: " + bet);
 		if(bet > p.getMoney())
 			bet = p.getMoney();
 		return bet;

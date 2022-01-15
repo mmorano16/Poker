@@ -29,14 +29,14 @@ public class Game
         d1.shuffle();
 		//		      card, card, money, notFold, name, handStrenght, betValue, allIn, bankrupt
 		table[0]=new Player(temp, temp, 100, true, "Me", 0, 0, false, false);//sets players hand
-		table[1]=new Player(temp, temp, 100, true, "Player 1", 0, 0, false, false);//sets players hand
-		table[2]=new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);//sets players hand
-		table[3]=new Player(temp, temp, 100, true, "Player 3", 0, 0, false, false);//sets players hand
-		table[4]=new Player(temp, temp, 100, true, "Player 4", 0, 0, false, false);//sets players hand
-		table[5]=new Player(temp, temp, 100, true, "Player 5", 0, 0, false, false);//sets players hand
-		table[6]=new Player(temp, temp, 100, true, "Player 6", 0, 0, false, false);//sets players hand
-		table[7]=new Player(temp, temp, 100, true, "Player 7", 0, 0, false, false);//sets players hand
-		table[8]=new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);//sets players hand
+		table[1]=new Player(temp, temp, 100, true, "Player 2", 0, 0, false, false);//sets players hand
+		table[2]=new Player(temp, temp, 100, true, "Player 3", 0, 0, false, false);//sets players hand
+		table[3]=new Player(temp, temp, 100, true, "Player 4", 0, 0, false, false);//sets players hand
+		table[4]=new Player(temp, temp, 100, true, "Player 5", 0, 0, false, false);//sets players hand
+		table[5]=new Player(temp, temp, 100, true, "Player 6", 0, 0, false, false);//sets players hand
+		table[6]=new Player(temp, temp, 100, true, "Player 7", 0, 0, false, false);//sets players hand
+		table[7]=new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);//sets players hand
+		table[8]=new Player(temp, temp, 100, true, "Player 9", 0, 0, false, false);//sets players hand
 		
 		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin");
 		in.nextLine();
@@ -70,7 +70,7 @@ public class Game
 			pos++;
 			com[pos]=d1.deal();
 			pos++;
-			System.out.println("The Flop: ");
+			System.out.println("\n\n" + "The Flop: ");
 			for(int i=0;i<pos;i++)
 				System.out.print(com[i] + ", ");
 			System.out.println("\n");	
@@ -184,9 +184,9 @@ public class Game
 				}
 				else //if there is only one player not in a side pot
 				{	 //might not be possible but just in case
-					System.out.print(winner.getName() + " wins.");
-					System.out.print(".");
-					Simple.print("\n");
+//					System.out.print(winner.getName() + " wins.");
+//					System.out.print(".");
+//					Simple.print("\n");
 					winner.setMoney(winner.getMoney()+pot);
 				}
 			}

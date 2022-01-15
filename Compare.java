@@ -16,7 +16,7 @@ public class Compare
 		winPos = pos;
 		
 		for(int i=0;i<table.length;i++)//searches for a winner with highest handStrenght
-			if(winner.getHandStrength()<table[i].getHandStrength() && table[i].getOut()==false)
+			if(winner.getHandStrength()<table[i].getHandStrength() && table[i].getStatus() && table[i].getOut()==false)
 			{
 				winner=table[i];
 				winPos=i;
@@ -24,7 +24,7 @@ public class Compare
 		tie.add(winPos);
 		for(int i=0;i<table.length;i++)//searches to see if any players in table have same handStrenght as winner
 		{
-			if(winner.getHandStrength()==table[i].getHandStrength() && table[i].getOut()==false && i!=winPos)
+			if(winner.getHandStrength()==table[i].getHandStrength() && table[i].getStatus() && table[i].getOut()==false && i!=winPos)
 			{
 				comp=compareHand(winner, table[i], table[i].getHandStrength(), com);
 				if(comp==1 && tie.size()==1)
