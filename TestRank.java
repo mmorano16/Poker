@@ -1429,7 +1429,7 @@ public class TestRank
 		p9.setC1(SK);p9.setC2(S8);
 		for(int i=0;i<9;i++)
 			table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-		c1.findWinner(table, com, 10);
+		c1.findWinner(table, com, 10,false);
 		assertTrue(p5.getMoney() == 110);
 	}	
 }	

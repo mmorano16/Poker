@@ -152,7 +152,39 @@ public class Game
 					}
 				}
 			}
-			c1.findWinner(table, com, pot);
+			if(sidePots.size() < 1)
+			{
+				c1.findWinner(table, com, pot, false);
+			}
+			else //there are side pots
+			{
+				int sidePlayerCount = 0;
+				ArrayList<Player> tempList = new ArrayList<Player>();
+				//find players that are not in any side pots and add to array list
+				for(Player player : table)
+				{
+					if(!player.getInSidePot())
+						tempList.add(player);
+				}
+				//transfer players from arraylist into new array
+				Player mainPlayers[] = new Player[tempList.size()];
+				for(int i = 0;i<mainPlayers.length;i++)
+				{
+					mainPlayers[i] = tempList.get(i);
+				}
+				//for each side pot transfer players into new array and find a winner for each side pot
+				for(Side side : sidePots)
+				{
+					Player sidePlayers[] = new Player[side.getPlayers().size()];
+					for(int i = 0; i < sidePlayers.length; i++)
+						sidePlayers[i] = side.getPlayers().get(i);
+					
+					c1.findWinner(sidePlayers, com, side.getPot(), true);
+				}
+				//find the winner for the main pot with players not in any side pots
+				c1.findWinner(mainPlayers, com, pot, false);
+			}
+			
 			for(int i=0;i<table.length;i++)//sets player status and all in to false and sets players with 0 money to out
 			{
 				table[i].setAllIn(false);
@@ -172,6 +204,7 @@ public class Game
 				dPos++;
 				dPos %= 9;
 			}
+			sideIndex.clear();
 			//checks to see if game has a winner
 			playerCount = 9;
 			for(int i=0;i<table.length;i++)

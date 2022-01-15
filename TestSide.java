@@ -40,14 +40,14 @@ public class TestSide
 		H2 = d1.deal(); H3 = d1.deal(); H4 = d1.deal(); H5 = d1.deal(); H6 = d1.deal(); H7 = d1.deal();
 		H8 = d1.deal(); H9 = d1.deal(); H10 = d1.deal(); HJ = d1.deal(); HQ = d1.deal(); HK = d1.deal(); HA = d1.deal();
 		p1 = new Player(temp, temp, 10, true, "Player 1", 0, 0, false, false);
-		p2 = new Player(temp, temp, 15, true, "Player 2", 0, 0, false, false);
-		p3 = new Player(temp, temp, 15, true, "Player 3", 0, 0, false, false);
-		p4 = new Player(temp, temp, 15, true, "Player 4", 0, 0, false, false);
+		p2 = new Player(temp, temp, 20, true, "Player 2", 0, 0, false, false);
+		p3 = new Player(temp, temp, 20, true, "Player 3", 0, 0, false, false);
+		p4 = new Player(temp, temp, 20, true, "Player 4", 0, 0, false, false);
 		exp = new Player(temp, temp, 0, false, "extra player", 0, 0, false, true);
 	}
     
-    @Test
-    public void test()
+    //@Test
+    public void test1()
     {
 		p1.setC1(temp);p1.setC2(temp);
 		p2.setC1(temp);p2.setC2(temp);
@@ -70,5 +70,56 @@ public class TestSide
     	assertTrue(pot == 10);
     	assertTrue(sidePots.get(0).getPot() == 35);
     	assertArrayEquals(expResult.toArray(), sidePots.get(0).getPlayers().toArray());
+    }
+    
+    @Test
+    public void test2()
+    {
+    	p1.setC1(D9);p1.setC2(temp);
+		p2.setC1(temp);p2.setC2(temp);
+		p3.setC1(C7);p3.setC2(temp);
+		p4.setC1(temp);p4.setC2(temp);
+		com[0] = C2;
+		com[1] = S3;
+		com[2] = H5;
+		com[3] = D7;
+		com[4] = C9;
+		Player table[] = {p1, p2, p3, p4, exp, exp, exp, exp, exp};
+    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	
+    	if(sidePots.size() < 1)
+		{
+			c1.findWinner(table, com, pot, false);
+		}
+		else //there are side pots
+		{
+			int sidePlayerCount = 0;
+			ArrayList<Player> tempList = new ArrayList<Player>();
+			//find players that are not in any side pots and add to array list
+			for(Player player : table)
+			{
+				if(!player.getInSidePot())
+					tempList.add(player);
+			}
+			//transfer players from array list into new array
+			Player mainPlayers[] = new Player[tempList.size()];
+			for(int i = 0;i<mainPlayers.length;i++)
+			{
+				mainPlayers[i] = tempList.get(i);
+			}
+			//for each side pot transfer players into new array and find a winner for each side pot
+			for(Side side : sidePots)
+			{
+				Player sidePlayers[] = new Player[side.getPlayers().size()];
+				for(int i = 0; i < sidePlayers.length; i++)
+					sidePlayers[i] = side.getPlayers().get(i);
+				
+				c1.findWinner(sidePlayers, com, side.getPot(), true);
+			}
+			//find the winner for the main pot with players not in any side pots
+			c1.findWinner(mainPlayers, com, pot, false);
+		}
+    	assertTrue(p1.getMoney() == 35);
+    	assertTrue(p3.getMoney() == 15);
     }
 }

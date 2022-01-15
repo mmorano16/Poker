@@ -87,7 +87,7 @@ public class Move
 			ArrayList<Player> players = new ArrayList<Player>();
 			int sidePot = 0;
 			//sets player InSidePot variable true so that are not added to another side pot
-//Remove?	//table[sideIndex.get(0)].setInSidePot(true);
+			table[sideIndex.get(0)].setInSidePot(true);
 			//sets amount to be added from each player to side pot
 			sideAmount = table[sideIndex.get(0)].getBet();
 			//adds player to players to be added that are eligible to win the side pot
@@ -98,12 +98,10 @@ public class Move
 				if(player.getStatus() && !player.getInSidePot())
 				{
 					players.add(player);
-					//sets player InSidePot variable true so that are not added to another side pot
-					player.setInSidePot(true);
 				}
 				//if the player has bet more than the side amount, add that amount to side pot
 				//and remove that amount from the players bet and money
-				if(player.getBet() >= sideAmount)
+				if(player.getBet() >= sideAmount && !player.getInSidePot())
 				{
 					sidePot += sideAmount;
 					player.setMoney(player.getMoney() - sideAmount);
@@ -131,7 +129,6 @@ public class Move
 			pot+=table[i].getBet();
 			table[i].setBet(0);
 		}
-		sideIndex.clear();
 		sideCount = 0;
 		return pot;
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Compare
 {
-	public void findWinner(Player[] table, Card[] com, int pot)
+	public void findWinner(Player[] table, Card[] com, int pot, boolean isSidePot)
 	{//pre:compares players hand strength finding the highest
 	//comparing hands if equal
 	//post:finds the winner and transfers money to winner
@@ -60,12 +60,22 @@ public class Compare
 				System.out.print(table[tie.get(i)].getName() + ", ");
 				table[tie.get(i)].setMoney(table[tie.get(i)].getMoney()+split);
 			}
-			System.out.println("split.");
+			System.out.print("split");
+			if(isSidePot)
+			{
+				System.out.print(" Side Pot");
+			}
+			Simple.print(".\n");
 			System.out.print("Players Earn: " + split + " Each");
 		}
 		else
 		{
-			System.out.println(winner.getName() + " wins");
+			System.out.print(winner.getName() + " wins");
+			if(isSidePot)
+			{
+				System.out.print(" Side Pot");
+			}
+			System.out.print(".\n");
 			winner.setMoney(winner.getMoney()+pot);
 		}
 		

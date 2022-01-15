@@ -69,7 +69,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				p1.setMoney(100);
 			}
@@ -97,7 +97,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 110);
 			}
 		}
@@ -124,7 +124,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 110);
 				p2.setMoney(100);
 			}
@@ -152,7 +152,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p2.getMoney() == 110);
 			}
 		}
@@ -179,7 +179,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p3.getMoney() == 110);
 				p3.setMoney(100);
 			}
@@ -207,7 +207,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p3.getMoney() == 110);
 			}
 		}
@@ -234,7 +234,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -264,7 +264,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -295,7 +295,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -326,7 +326,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -357,7 +357,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -388,7 +388,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -419,7 +419,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 9);
+				c1.findWinner(table, com, 9, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -451,7 +451,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -481,7 +481,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -511,7 +511,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -541,7 +541,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -571,7 +571,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -601,7 +601,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -631,7 +631,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -662,7 +662,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -693,7 +693,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -724,7 +724,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -755,7 +755,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -786,7 +786,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -817,7 +817,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 9);
+				c1.findWinner(table, com, 9, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -849,7 +849,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -879,7 +879,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -909,7 +909,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -939,7 +939,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -969,7 +969,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -999,7 +999,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1029,7 +1029,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1060,7 +1060,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1091,7 +1091,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1122,7 +1122,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1153,7 +1153,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1184,7 +1184,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1215,7 +1215,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 9);
+				c1.findWinner(table, com, 9, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -1247,7 +1247,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1277,7 +1277,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1307,7 +1307,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1337,7 +1337,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1367,7 +1367,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1397,7 +1397,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1427,7 +1427,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1458,7 +1458,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1489,7 +1489,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1520,7 +1520,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1551,7 +1551,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1582,7 +1582,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1613,7 +1613,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 9);
+				c1.findWinner(table, com, 9, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -1645,7 +1645,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1675,7 +1675,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1705,7 +1705,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1735,7 +1735,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p2.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1765,7 +1765,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1795,7 +1795,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p3.getMoney() == 110);
 				p1.setMoney(100);
 				p2.setMoney(100);
@@ -1825,7 +1825,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1856,7 +1856,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertFalse(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -1887,7 +1887,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1918,7 +1918,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1949,7 +1949,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
 				p1.setMoney(100);
@@ -1980,7 +1980,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				p1.setMoney(100);
@@ -2011,7 +2011,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 9);
+				c1.findWinner(table, com, 9, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -2043,7 +2043,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -2075,7 +2075,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -2107,7 +2107,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -2139,7 +2139,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -2171,7 +2171,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -2203,7 +2203,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -2235,7 +2235,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2267,7 +2267,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -2299,7 +2299,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -2331,7 +2331,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2363,7 +2363,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -2395,7 +2395,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2427,7 +2427,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -2459,7 +2459,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -2491,7 +2491,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -2523,7 +2523,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -2555,7 +2555,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -2587,7 +2587,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -2619,7 +2619,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -2651,7 +2651,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -2683,7 +2683,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2715,7 +2715,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -2747,7 +2747,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -2779,7 +2779,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2811,7 +2811,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -2843,7 +2843,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -2875,7 +2875,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -2907,7 +2907,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -2939,7 +2939,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -2971,7 +2971,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 110);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 100);
@@ -3003,7 +3003,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3035,7 +3035,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3067,7 +3067,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3099,7 +3099,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3131,7 +3131,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -3163,7 +3163,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -3195,7 +3195,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -3227,7 +3227,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 110);
@@ -3259,7 +3259,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3291,7 +3291,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 110);
 				assertTrue(p3.getMoney() == 100);
@@ -3323,7 +3323,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -3355,7 +3355,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -3387,7 +3387,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -3419,7 +3419,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -3451,7 +3451,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -3483,7 +3483,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 100);
 				assertTrue(p3.getMoney() == 105);
@@ -3515,7 +3515,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -3547,7 +3547,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -3579,7 +3579,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -3611,7 +3611,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -3643,7 +3643,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 105);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 100);
@@ -3675,7 +3675,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 100);
 				assertTrue(p2.getMoney() == 105);
 				assertTrue(p3.getMoney() == 105);
@@ -3707,7 +3707,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
@@ -3739,7 +3739,7 @@ public class TestCompare
 				com[(k+1)%5] = temp;
 				for(int i=0;i<table.length;i++)
 					table[i].setHandStrength(r1.rankHand(table[i].getC1(), table[i].getC2(), com));
-				c1.findWinner(table, com, 10);
+				c1.findWinner(table, com, 10, false);
 				assertTrue(p1.getMoney() == 103);
 				assertTrue(p2.getMoney() == 103);
 				assertTrue(p3.getMoney() == 103);
