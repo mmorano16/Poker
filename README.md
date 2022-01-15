@@ -17,6 +17,6 @@ Search: contains methods that finds player hand strength at the flop and turn in
 
 Compare: If two or more players have the same hand strength, contains methods that compare the two players hands to determine which is the winner. If players have equal hands, pot is split between the tied players
 
-Move(Work in Progress): Contains methods for users move and for opponents move using probabilities based upon current hand strength.
+Move: Contains methods for users move and for opponents move using probabilities based upon current hand strength.
 
-Side(work in progress): Contains methods to create side pots in the event a player bets all of their money.
+Side: Contains methods to create side pots in the event a player bets all of their money.
