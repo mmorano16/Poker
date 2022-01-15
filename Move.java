@@ -88,7 +88,7 @@ public class Move
 	{
 		int sideAmount = 0, sideCount = 0, index, sidePot = 0;
 		index = 0;
-		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Player> players;
 		for(Player player : table)
 		{
 			if(player.getAllIn())
@@ -101,6 +101,7 @@ public class Move
 		//creates side pot if one is needed
 		if(sideCount == 1)
 		{
+			players = new ArrayList<Player>();
 			//sets player InSidePot variable true so that are not added to another side pot
 			table[sideIndex.get(0)].setInSidePot(true);
 			//sets amount to be added from each player to side pot
@@ -139,32 +140,44 @@ public class Move
 		{
 			int startIndex, endIndex;			
 			ArrayList<Player> sidePotPlayers = new ArrayList<Player>();
-			
+			//adds players that have created side pots to new list
 			for(Integer sIndex : sideIndex)
 				sidePotPlayers.add(table[sIndex]);
-			
+			//sorts side pot plyers by bet from low to high
 			sortSidePlayers(sidePotPlayers);
 			
 			for(int i = 0; i < sidePotPlayers.size(); i++)
 			{
 				startIndex = i;
 				endIndex = startIndex;
+				//sets amount to be added from each player to side pot
+				sideAmount = sidePotPlayers.get(startIndex).getBet();
+				sidePot = 0;
+				players = new ArrayList<Player>();
 				//while endIndex is not at the end of the list and the next player has the same bet increase end index
-				while(endIndex < sidePotPlayers.size() && 
+				while(endIndex < sidePotPlayers.size()-1 && 
 						sidePotPlayers.get(i + 1).getBet() == sidePotPlayers.get(i).getBet())
 				{
 					endIndex++;
 				}
+				players.add(sidePotPlayers.get(startIndex));
+				int tempIndex = startIndex;
+				while(tempIndex != endIndex)
+				{
+					tempIndex++;
+					players.add(sidePotPlayers.get(tempIndex));
+				}
 				for(Player player : table)
 				{
+					//if players have the same bet add them to the same side pot
 					if(startIndex == endIndex)
 					{
-						table[sideIndex.get(i)].setInSidePot(true);
+						table[sideIndex.get(startIndex)].setInSidePot(true);
 						startIndex++;
 					}
 					else if(startIndex < endIndex)
 					{
-						table[sideIndex.get(i)].setInSidePot(true);
+						table[sideIndex.get(startIndex)].setInSidePot(true);
 						startIndex++;
 						i++;
 					}

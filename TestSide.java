@@ -19,7 +19,7 @@ public class TestSide
     private Rank r1=new Rank();
     private Compare c1=new Compare();
     private Move m1=new Move();
-    private Player p1, p2, p3, p4, exp;
+    private Player p1, p2, p3, p4, p5, exp;
     private Stack<Side> sidePots = new Stack<Side>();
     private ArrayList<Integer> sideIndex = new ArrayList<Integer>();
 	
@@ -42,12 +42,13 @@ public class TestSide
 		p1 = new Player(temp, temp, 10, true, "Player 1", 0, 0, false, false);
 		p2 = new Player(temp, temp, 20, true, "Player 2", 0, 0, false, false);
 		p3 = new Player(temp, temp, 20, true, "Player 3", 0, 0, false, false);
-		p4 = new Player(temp, temp, 20, true, "Player 4", 0, 0, false, false);
+		p4 = new Player(temp, temp, 30, true, "Player 4", 0, 0, false, false);
+		p5 = new Player(temp, temp, 30, true, "Player 5", 0, 0, false, false);
 		exp = new Player(temp, temp, 0, false, "extra player", 0, 0, false, true);
 	}
     
     //@Test
-    public void test1()
+    public void singleSidePot()
     {
 		p1.setC1(temp);p1.setC2(temp);
 		p2.setC1(temp);p2.setC2(temp);
@@ -72,8 +73,8 @@ public class TestSide
     	assertArrayEquals(expResult.toArray(), sidePots.get(0).getPlayers().toArray());
     }
     
-    @Test
-    public void test2()
+    //@Test
+    public void SingleSidePotFinalOutcome()
     {
     	p1.setC1(D9);p1.setC2(temp);
 		p2.setC1(temp);p2.setC2(temp);
@@ -124,6 +125,35 @@ public class TestSide
     }
     
     @Test
+    public void multipleSidePots()
+    {
+		p1.setC1(temp);p1.setC2(temp);
+		p2.setC1(temp);p2.setC2(temp);
+		p3.setC1(temp);p3.setC2(temp);
+		p4.setC1(temp);p4.setC2(temp);
+		p5.setC1(temp);p5.setC2(temp);
+		com[0] = temp;
+		com[1] = temp;
+		com[2] = temp;
+		com[3] = temp;
+		com[4] = temp;
+		Player table[] = {p1, p2, p3, p4, p5, exp, exp, exp, exp};
+    	int pot = m1.move(table, 0, 0, com, sideIndex, sidePots);
+    	ArrayList<Player> players1 = new ArrayList<Player>();
+    	ArrayList<Player> players2 = new ArrayList<Player>();
+    	players1.add(p1);players1.add(p2);players1.add(p3);players1.add(p4);players1.add(p5);
+    	Side expected1 = new Side(players1,50);
+    	players2.add(p2);players2.add(p3);players2.add(p4);players2.add(p5);
+    	Side expected2 = new Side(players2,50);
+    	
+    	assertArrayEquals(expected1.getPlayers().toArray(), sidePots.get(0).getPlayers().toArray());
+    	assertTrue(sidePots.get(0).getPot() == 50);
+    	assertArrayEquals(expected2.getPlayers().toArray(), sidePots.get(1).getPlayers().toArray());
+    	assertTrue(sidePots.get(1).getPot() == 40);
+    	assertTrue(pot == 10);
+    }
+    
+    //@Test
     public void sortArrayList()
     {
     	p1.setBet(20);
