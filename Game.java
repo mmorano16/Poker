@@ -1,5 +1,6 @@
 //main class, creates card, deck, players, table and runs methods in other classes
 import java.util.*;
+import java.io.*;
 
 public class Game
 {
@@ -38,10 +39,15 @@ public class Game
 		table[7]=new Player(temp, temp, 100, true, "Player 8", 0, 0, false, false);//sets players hand
 		table[8]=new Player(temp, temp, 100, true, "Player 9", 0, 0, false, false);//sets players hand
 		
-		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin or Type 'Load' to Load a Previously Ssaved Same");
+		Simple.print("Welcome to CLI Poker V1" + "\n" + "Press Enter to Begin or Type 'Load' to Load a Previously Saved Game");
 		if(in.nextLine().equals("Load"))
 		{
-			loadGame();
+			Save save = loadGame();
+			table = save.getPlayers();
+			dPos = save.getDPos();
+			for(Player player : table)
+				System.out.println(player.getName() + player.getMoney());
+			Simple.print("Dealer Position: " + dPos);
 		}
 		Simple.print("Would you like to rename players? Y/N");
 		if(in.next().equals("Y"))
@@ -237,8 +243,11 @@ public class Game
 					playerCount--;
 			if(!table[0].getOut())
 			{
-				Simple.print("\nPress Enter to Continue");
-				in.nextLine();
+				Simple.print("Press Enter to Continue or Type 'Save' to Save Your Game");
+				if(in.next().equals("Save"))
+				{
+					saveGame(table, dPos);
+				}
 			}
 		}
 		//Player winner = new Player();
@@ -250,10 +259,65 @@ public class Game
 		System.out.println("\n" + winner.getName() + " Is the winner!");
     }
 
-	private static void loadGame() 
+	private static void saveGame(Player[] table, int dPos) 
 	{
-		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		Save save = new Save(table, dPos);
+		String fileName = "file.ser";
 		
+		//Serialization
+		try
+		{
+			//Saving of object in a file
+			FileOutputStream file = new FileOutputStream(fileName);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			//Method for serialization of object
+			out.writeObject(save);
+			
+			out.close();
+			file.close();
+			Simple.print("Game Saved" + "\n" + "Press Enter to Continue");
+			in.nextLine();
+		}
+		catch(IOException e)
+		{
+			System.out.println("IOException is caught" + "\n" + e);
+			Simple.print("Something went wrong. Game not saved");
+			Simple.print("Press Enter to Continue");
+			in.nextLine();
+		}
+	}
+
+	private static Save loadGame() 
+	{
+		Scanner in = new Scanner(System.in);
+		Save save = null;
+		String fileName = "file.ser";
+		
+		try
+		{
+			FileInputStream file = new FileInputStream(fileName);
+			ObjectInputStream input = new ObjectInputStream(file);
+			
+			save = (Save)input.readObject();
+			
+			input.close();
+			file.close();
+
+			Simple.print("Game Loaded" + "\n" + "Press Enter to Continue");
+			in.nextLine();
+		}
+		catch(IOException | ClassNotFoundException e)
+		{
+			Simple.print("Something went wrong. Game not loaded" + "\n" + e);
+			Simple.print("Press Enter to Continue");
+			in.nextLine();
+		}
+		
+		
+		
+		return save;
 	}
 
 	private static void renamePlayers(Player[] table) 
