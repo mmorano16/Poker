@@ -1,5 +1,7 @@
+import java.io.*;
+
 //class to create player object
-public class Player
+public class Player implements Serializable
 {
 	private Card c1, c2;
 	private int money, handStrength, bet;

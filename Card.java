@@ -1,5 +1,7 @@
+import java.io.*;
+
 //creates a class for each card with rank, suit, value
-public class Card
+public class Card implements Serializable
 {
     private String rank, suit;
     private int value;
