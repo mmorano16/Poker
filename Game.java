@@ -15,7 +15,7 @@ public class Game
 		Card com[]=new Card[5];//community cards
 		Player table[]=new Player[9];//table of players
 		Player  winner=table[0];
-		int pos=0, dPos=0, pot=0, round=0, turn=0, bet=0, highBet=0, playerCount=9;
+		int pos=0, dPos=0, pot=0, round=0, turn=0, bet=0, highBet=0, playerCount=9, bugFix = 0;
 		Card temp=new Card("temp", "temp", -1);
 		ArrayList<Integer> sideIndex;
 		Stack<Side> sidePots;
@@ -244,9 +244,15 @@ public class Game
 			if(!table[0].getOut())
 			{
 				Simple.print("Press Enter to Continue or Type 'Save' to Save Your Game");
-				if(in.next().equals("Save"))
+				if(in.nextLine().equals("Save"))
 				{
 					saveGame(table, dPos);
+				}
+				if(bugFix == 0)//fix to bug where program will not wait for input on first run through
+				{
+					Simple.print("Press Enter to Continue");
+					in.nextLine();
+					bugFix++;
 				}
 			}
 		}
