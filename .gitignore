@@ -1,5 +1,6 @@
 *.txt
 *.docx
+*.ser
 TestRunner.java
 /TestRunner.class
 /RankTests.class
