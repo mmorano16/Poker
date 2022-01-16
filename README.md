@@ -1,8 +1,6 @@
 # poker
 Poker game using command line input
 
-**Work in progress**
-
 Game: contains main class, creates cards and deck, players, calls methods in other classes to complete steps of the game
 
 Card: creates card objects with getter methods for rank, suit, and value. Contains method compare values between two cards.
