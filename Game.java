@@ -63,9 +63,11 @@ public class Game
 			
 			pos = 0; pot = 0;
 			for(int i=0;i<table.length;i++)//deals first cards
-				table[i].setC1(d1.deal());
+				if(!table[i].getOut())
+					table[i].setC1(d1.deal());
 			for(int i=0;i<table.length;i++)//deals second cards 
-				table[i].setC2(d1.deal());		
+				if(!table[i].getOut())
+					table[i].setC2(d1.deal());		
 			
 //			for(int i=0;i<table.length;i++)
 //				System.out.println(table[i].toString());
