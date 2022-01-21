@@ -29,7 +29,7 @@ public class TestSide
 		for(int i=0;i<values.length;i++)
 	        values[i]=i;
 		temp = new Card("temp", "temp", -1);
-		d1 = new Deck(ranks, suits, values);
+		d1 = new Deck();
 		//deal cards
 		C2 = d1.deal(); C3 = d1.deal(); C4 = d1.deal(); C5 = d1.deal(); C6 = d1.deal(); C7 = d1.deal();
 		C8 = d1.deal(); C9 = d1.deal(); C10 = d1.deal(); CJ = d1.deal(); CQ = d1.deal(); CK = d1.deal(); CA = d1.deal();

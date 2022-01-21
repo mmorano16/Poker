@@ -23,7 +23,7 @@ public class Game
 		for(int i=0;i<values.length;i++)
             values[i]=i;
 		
-        Deck d1=new Deck(ranks, suits, values);
+        Deck d1=new Deck();
 		Rank r1=new Rank();
 		Compare c1=new Compare();
 		Move m1=new Move();
@@ -228,7 +228,7 @@ public class Game
 				if(table[i].getMoney() == 0)
 					table[i].setOut(true);
 			}
-			d1=new Deck(ranks, suits, values);//resets deck
+			d1.reset();//resets deck
 			d1.shuffle();
 			round=0;
 			dPos++;

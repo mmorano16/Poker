@@ -3,9 +3,11 @@ import java.util.Random;
 
 public class Deck
 {
-    private Card[] deck;
     private int currentCard=0;
-    public Deck(String[]ranks, String[]suits, int[]values)
+    String ranks[]={"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
+    String suits[]={"Clubs","Spades","Diamonds","Hearts"};
+    private Card[] deck=new Card[suits.length*ranks.length];
+    public Deck()
     {//pre: receives arrays of ranks, suits, and values
      //post: returns a constructed deck array
         int pos=0;
@@ -13,7 +15,7 @@ public class Deck
         for(int i=0;i<suits.length;i++)
             for(int k=0;k<ranks.length;k++)
             {
-                deck[pos]=new Card(ranks[k],suits[i],values[k]);
+                deck[pos]=new Card(ranks[k],suits[i],k);
                 pos++;
             }
     }
@@ -41,6 +43,20 @@ public class Deck
             Card x=deck[i];
             deck[i]=deck[y];
             deck[y]=x;
+        }
+    }
+    public void reset()
+    {
+    	int pos=0;
+    	currentCard = 0;
+        deck=new Card[suits.length*ranks.length];
+        for(int i=0;i<suits.length;i++)
+        {
+            for(int k=0;k<ranks.length;k++)
+            {
+                deck[pos]=new Card(ranks[k],suits[i],k);
+                pos++;
+            }
         }
     }
     public String toString()//returns the objects in the deck
