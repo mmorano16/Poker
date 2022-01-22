@@ -265,6 +265,8 @@ public class Game
 				winner = player;
 		}
 		System.out.println("\n" + winner.getName() + " Is the winner!");
+		in.nextLine();
+		System.console().readLine();
     }
 
 	private static void saveGame(Player[] table, int dPos) 
